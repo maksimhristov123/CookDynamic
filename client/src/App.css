@@ -1,0 +1,3604 @@
+    /* Fonts */
+
+    /* Colors */
+
+    /* #d34723 orange */
+    /* #23418f blue */
+    /* #e9efff tag */
+    /* #f2f2f2 nubmer color */
+    /* #fcbe2a star */
+    /* #4e4e4e text color */
+    /* f2f2f2 card_item_count */
+
+    /* Fonts */
+    @font-face {
+        font-family: "Axiforma Light";
+        src: url("../src/fonts/AxiformaLight.otf");
+    }
+
+    @font-face {
+        font-family: "Axiforma SemiBold";
+        src: url("../src/fonts/AxiformaSemiBold.otf");
+    } 
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        color: #000000;
+        font-family: "Axiforma Light",serif;
+    }
+
+    body,
+    html{
+        box-sizing: border-box;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    ul{
+        list-style: none;
+    }
+
+    a{
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    p{
+        font-size: 1em;
+    }
+
+    img{
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+
+    /************************************************ REUSABLE ****************************************************/
+    .text_blue{
+        color: #23418f !important;
+    }
+
+    .text_gray{
+        color: #4e4e4e;
+    }
+
+    .text_white{
+        color: white;
+    }
+
+    .text_orange{
+        color: #d34723;
+    }
+
+    .text_italic{
+        font-style: italic;
+    }
+
+    .inner_section{
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .close_btn{
+        cursor: pointer;
+    }
+
+    /*BUTTONS*/
+    .btn_container{
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 25px;
+        max-width: 240px;
+        font-size: .9em;
+        text-transform: capitalize;
+        font-family: "Axiforma SemiBold", serif;
+
+    }
+
+    .btn_white{
+        background-color: white;
+        color: #324e96;
+        margin-left: auto;
+        margin-right: auto;
+        padding:15px 20px;
+    }
+
+    .btn_blue{
+        background-color: #324e96;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+        padding:15px 20px;
+    }
+
+    .btn_inactive{
+        background-color: #858585;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+        padding:15px 20px;
+        pointer-events: none;
+    }
+
+    .apple_btn{
+        display: flex;
+        align-items: center;
+        background-color: black;
+        color: white;
+        padding:15px 20px;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .apple_btn i{
+        color: white;
+        margin-right: 20px;
+    }
+
+    .facebook_btn{
+        display: flex;
+        align-items: center;
+        background-color: #3f66af;
+        color: white;
+        padding:15px 20px;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .facebook_btn i{
+        color: white;
+        margin-right: 20px;
+    }
+
+    /*TAG BUTTON*/
+    .tag_scroll{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #de775d;
+        color: white;
+        border-radius: 50%;
+        border:none;
+        cursor: pointer;
+    }
+
+    .tag_scroll svg{
+        fill: white;
+    }
+
+    /*SECTION HEADINGS*/
+    .section_heading_container{
+        width: 95%;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+
+    .section_heading{
+        font-family: "Axiforma SemiBold",serif;
+        font-size: 1.57em;
+        font-weight: 400;
+    }
+
+    .section_heading_text{
+        font-size: 1.15em;
+        margin-top: 25px;
+        margin-bottom: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+    }
+
+    /* CARDS */
+    .card{
+        display: block;
+        text-align: center;
+        width: 64%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card_img_container{
+        position: relative;
+    }
+
+    .card_item_count{
+        font-family: "Axiforma SemiBold",serif;
+        position: absolute;
+        bottom: -66px;
+        font-size: 8.5em;
+        font-weight: 600;
+        color: black;
+        opacity: .1;
+        z-index: 1;
+    }
+
+    .card_content_container{
+        position: relative;
+        z-index: 2;
+    }
+
+    .card_title{
+        font-size: 1.14em;
+        font-family: "Axiforma SemiBold",serif;
+        margin-bottom: 25px;
+    }
+
+    .card_text{
+        text-align: justify; 
+        text-align-last: center;
+    }
+
+
+    
+    .home_page,
+    .choose_recipes_page{
+        margin-bottom: 50px;
+    }
+
+    
+
+    /************************************************HEADER***************************************/
+    header{
+        position: relative;
+        background-image: url(../public/uploads/header_mobile.png);
+        width: 100%;
+        height: 90px;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        z-index: 9999;
+    }
+
+    header .inner_section{
+        display: flex;
+        width: 90%;
+        height: 80px;
+        align-items: center;
+    }
+
+    .lang{
+        margin-right: 10px;
+    }
+
+    .header_logo_desktop{
+        display: none;
+    }
+
+    .header_container{
+        width: 100%;
+    }
+
+    .header_logo_container{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        top: 20px;
+        left: 40%;
+        right: 40%;
+        z-index: 99;
+    }
+
+    .open_nav_btn{
+        display: block;
+        cursor: pointer;
+    }
+
+    .open_nav_btn span{
+        display: block;
+        width: 30px;
+        height: 3px;
+        margin-bottom: 5px;
+        background-color: black;
+    }
+
+    .nav_container{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-image: url(../public/uploads/menu_bg.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 9999;
+    }
+
+    .dropdown-menu{
+        margin-top: 20px;
+    }
+
+    .dropdown-menu ul li{
+        margin: 50px 0;
+        display: flex;
+        justify-content: center;
+        appearance: none;
+    }
+
+    .dropdown-menu ul li a{
+        display: block;
+        text-align: center;
+        font-size: 1.125em;
+    }
+
+    .dropdown-menu ul li svg{
+        padding-right: 10px;
+        font-size: 1.125em;
+        
+    }
+
+    .dropdown-menu ul li svg path{
+        fill: #23418f;
+    }
+
+    #lang_bar_container{
+        position: relative;
+        margin-left: 45px;
+        width: 50px;
+    }
+
+    header .form_item svg{
+        right: 0;
+    }
+
+    .lang_list{
+        display: none;
+    }
+
+    header .active_select{
+        position: absolute;
+        background: white;
+        width: 100%;
+    }
+
+    header .active_select_btn{
+        border-width: 0;
+    }
+
+    
+    .lang_selector{
+        width: 15%;
+    }
+
+    .current_lang{
+        display: flex;
+        align-items: center;
+    }
+
+    .header_btn_container{
+        /* width: 50%; */
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .header_btn_container .btn_login{
+        color: #23418f;
+        border-radius: 50%;
+        border: 1px solid #23418f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+    }
+
+    .header_btn_container .btn_login i,
+    .current_lang p{
+        color: #23418f;
+        cursor: pointer;
+    }
+
+    .header_btn_container .btn_login p{
+        display: none;
+    }
+
+    .active_menu{
+        display: flex;
+        justify-content: center;
+        animation-name: fadeInMenu;
+        animation-duration: .5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        transition: all .5s;
+    }
+
+    @keyframes fadeInMenu {
+        0%{
+            left:-100%;
+        }
+        100%{
+            left: 0;
+        }
+    }
+
+
+    /**********************************************************************************************LOGIN SECTIONS**********************************************************/
+    .login_container{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .4);
+        z-index: 99999999999;
+    }
+
+    .active_login_popup{
+        display: block;
+    }
+
+    .login_container .inner_section{
+        position: fixed;
+        z-index: 9999999;
+        background-color: white;
+        width: 90%;
+        top: 12%;
+        left: 5%;
+        right: 5%;
+        padding:50px 15px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .login_container .slider_navigation{
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .login_container .swiper-pagination-bullets.swiper-pagination-horizontal{
+        bottom: 12px !important;
+    }
+
+    .login_container .swiper-button-next::after, 
+    .login_container .swiper-button-prev::after{
+        font-size: 15px;
+        color: #23418f;
+    }
+
+    .login_container .swiper-pagination-bullet-active{
+        width: 20px;
+        height: 20px;
+        background: #23418f !important;
+        position: relative;
+    }    
+
+    .login_container .swiper-pagination-bullet{
+        border:2px solid #23418f;
+        padding: 2px;
+        opacity: 1;
+        background: transparent;
+        margin: 0 20px !important;
+    }
+
+    .login_container .swiper-pagination-bullet-active::after{
+        content: "\f562";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        position: absolute;
+        top: 2.5px;
+        left: 2.5px;
+        color: white;
+        font-family: "Font Awesome 5 Pro", serif;
+    }
+
+    .login_container .card{
+        width: 90%;
+    }
+
+    .login_container .steps_slider{
+        display: none;
+        margin-top: 20px;
+    }
+
+    .login_container .register_container .section_heading_container{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .login_container .register_container input[type="email"]{
+        margin-bottom: 20px;
+    }
+
+    .login_container .register_container input[type="submit"]{
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .login_container .register_container p{
+        margin-bottom: 20px;
+    }
+
+    .close_login_btn{
+        font-size: 15px;
+        font-weight: 350;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+
+
+
+
+
+
+    /***********************************************************************************************HERO SECTIONS**********************************************************/
+    .hero{
+        margin-top: -50px;
+        position: relative;
+    }
+
+    .bg_hero_desktop{
+        display: none;
+    }
+
+    .inner_hero .bg_hero_mobile{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero_container{
+        position:absolute;
+        width: 72%;
+    }
+
+    .inner_hero .hero_container{
+        top: 40%;
+        left: 5%;
+        width: 90%;
+        z-index: 2;
+    }
+
+    .hero_heading,
+    .hero_text{
+        color: white;
+        margin-bottom: 25px;
+    }
+
+    .hero_heading{
+        font-family: "Axiforma SemiBold";
+        font-weight: 400;
+        font-size: 1.7em;
+    }
+
+    .inner_hero .hero_heading{
+        text-align: center;
+    }
+
+    /*Home HERO*/
+    /*Inner HERO*/
+    .home_hero{
+        height: 95vh;
+    }
+
+    .inner_hero{
+        height: 50vh;
+    }
+
+    .home_hero:after,
+    .inner_hero:after{
+        position: absolute;
+        content: "";
+        background-image: url(../public/uploads/hero_wave_mobile.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 40px;
+        z-index: 999;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .home_slider .slider_navigation{
+        position: absolute;
+        bottom: 50px;
+        left: auto;
+        right: auto;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero .swiper-pagination-bullet{
+        border:2px solid white;
+        padding: 5px;
+        opacity: 1;
+        background: transparent;
+        margin: 0 20px !important;
+    }
+
+    .swiper-horizontal > .swiper-pagination-bullets, 
+    .swiper-pagination-bullets.swiper-pagination-horizontal, 
+    .swiper-pagination-custom, 
+    .swiper-pagination-fraction{
+        bottom: 0 !important;
+    }
+
+    .home .swiper-pagination{
+        display: flex !important;
+        align-items: center !important;
+        bottom: 0;
+    }
+
+    .home_slider .swiper-button-next, 
+    .home_slider .swiper-button-prev{
+        height: 15px;
+    }
+
+    .home_slider .swiper-button-next::after, 
+    .home_slider .swiper-button-prev::after{
+        top: 0;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .home_slider .swiper-pagination-bullet-active{
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(../public/uploads/bell.png);
+    }
+    
+
+
+    /**************************************** HOW IT WORKS SECTION **********************************/
+
+    .how_it_works_section{
+        position: relative;
+        padding: 50px 0;
+    }
+
+    .how_it_works_section .card{
+        position: relative;
+        margin-bottom: 40px;
+    }
+
+    .how_it_works_section .card:nth-of-type(odd)::after{
+        content: url(../public/uploads/arr_right.png);
+        display: block;
+        width:20px;
+        height: 50px;
+        position: absolute;
+        bottom: -60px;
+        right: 0;
+    }
+
+    .how_it_works_section .card:nth-of-type(even)::after{
+        content: url(../public/uploads/arr_left.png);
+        display: block;
+        width:20px;
+        height: 50px;
+        position: absolute;
+        bottom: -60px;
+        left: 0;
+    }
+
+    .how_it_works_section .card:last-of-type::after{
+        display: none;
+    }
+
+    .how_it_works_section::after{
+        content: "";
+        display: block;
+        padding-bottom: 10px;
+        width: 100%;
+        height: 45px;
+        background-image: url(../public/uploads/how_it_works_after.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center right;
+        position: absolute;
+        bottom: -45px;
+        z-index: 3;
+    }
+
+    /**************************************** BANNER TYPE 1 SECTION **********************************/
+    /**************************************** BANNER TYPE 2 SECTION **********************************/
+
+    .banner_type1{
+        position: relative;
+        background-image: url(../public/uploads/bg_section_2.png);
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        width: 100%;
+    }
+
+    .banner_type2{
+        position: relative;
+        background-image: url(../public/uploads/bg_section_4.png);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        width: 100%;
+        padding:130px 20px;
+    }
+
+    .banner_type1 .inner_section{
+        padding-bottom: 65px;
+    }
+
+    .banner_type1  img{
+        position: relative;
+        margin-top: -50px;
+        z-index: 4;
+    }
+
+    .banner_heading{
+        font-size: 1.38em;
+        font-family: "Axiforma SemiBold";
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+    }
+
+    .banner_type2 .banner_heading{
+        width: 80%;
+        text-align: center;
+    }
+
+    .banner_type1 .btn_container,
+    .banner_type2 .btn_container{
+        width: 70%;
+        margin-left: auto;
+    }
+
+    .banner_type1 .btn_container .btn{
+        margin-left: 0;
+    }
+
+
+    /**************************************** WHATS IN THE BOX SECTION SECTION **********************************/
+    .inside_box_section{
+        position: relative;
+        padding: 70px 0;
+    }
+
+    .inside_box_slider .card{
+        display: block;
+        background-color: white !important;
+        height: 100%;
+        width: 85%;
+        padding: 30px 35px;
+        border-radius: 10px;
+        box-shadow: 0 0 25px 0 rgba(21, 34, 136,.09);
+    }
+
+    .inside_box_slider .card_img_container{
+        max-width: 120px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+        height: 130px;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .inside_box_slider .card_img_container img{
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .inside_box_slider .swiper-slide{
+        height: auto !important;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .inside_box_slider .card_text{
+        text-align: center;
+    }
+
+    .inside_box_slider .slider_navigation{
+        position: relative;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    .inside_box_slider .slider_navigation .swiper-button-prev,
+    .inside_box_slider .slider_navigation .swiper-button-next{
+        color: #4e4e4e ;
+    }
+
+    .inside_box_slider .slider_navigation .swiper-button-prev{
+        left: 30px;
+    }
+
+    .inside_box_slider .slider_navigation .swiper-button-next{
+    right: 30px;
+    }
+
+    .inside_box_slider .slider_navigation .swiper-button-prev::after{
+        content: "\27F5";
+        font-size: 1.5em;
+    }
+
+    .inside_box_slider .slider_navigation .swiper-button-next::after{
+        content: "\27F6";
+        font-size: 1.5em;
+    }
+
+
+/****************************************RECIPE SECTION**********************************/
+.recipes_section{
+    padding: 60px 0;
+    position: relative;
+}
+
+.recipes_section .inner_section{
+    width: 100%;
+    margin: 0;
+}
+
+.recipes_section .swiper{
+    overflow-y: visible;
+    padding: 0 2.5%;
+}
+
+.recipes_slider .swiper-slide .card{
+    display: block  ;
+    height: auto;
+    min-height: 400px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px 0 rgba(21, 34, 136,.16);
+    padding: 0;
+}
+
+.recipes_slider .card_img_container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.recipe_time{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    left: 10px;
+    border-radius: 20px;
+    max-width: 90px;
+    height: 25px;
+    padding:5px;
+    background-color: white;
+}
+
+.recipe_time img{
+    display: block;
+    width: 12px !important;
+    height: 12px !important;
+    max-width: 100%;
+    object-fit: contain;
+    margin-right: 2px;
+}
+
+.recipe_category{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    height: 25px;
+    padding:5px 10px;
+}
+
+.new .recipe_category{
+    background-color: #de775d;
+}
+
+.best_seller .recipe_category{
+    background-color: #29bf69;
+}
+
+.all_stars .recipe_category{
+    background-color:#e4af0f;
+}
+
+.category{
+    color: white;
+    font-size:12px;
+    text-transform: uppercase;
+}
+
+.time{
+    font-size: 12px;
+}
+
+.recipes_slider .card_content_container{
+    position: absolute;
+    top: 61%;
+}
+
+.recipes_slider .card_title{
+    font-size: .78em;
+    padding:10px 5px 5px 5px;
+    text-align: left;
+}
+
+.fa-fw{
+    color: #fcc238;
+}
+
+.recipes_section .slider_navigation{
+    position: relative;
+    height: 50px;
+    margin-top: 10px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reviews_container{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.reviews_container ul{
+    margin-right: 10px;
+}
+
+.reviews_container p{
+    margin-bottom: 0 !important;
+}
+
+.reviews_container ul li i{
+    font-size: 13px;
+}
+
+.recipes_section .swiper-button-next, 
+.recipes_section .swiper-button-prev{
+    color: black !important;
+    font-size: 20px;
+}
+
+.recipes_section .swiper-button-next::after, 
+.recipes_section .swiper-button-prev::after{
+    color: black !important;
+    font-size: 20px;
+}
+
+.recipes_slider .section_heading_container .section_heading{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recipes_slider .section_heading_container .section_heading_text{
+    margin-bottom: 20px;
+}
+
+.tag_list_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tag_list{
+    display: flex;
+    width: 90%;
+    min-height: 50px;
+    padding: 10px 0;
+    overflow-x: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.tag_list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .tag_list {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+.tag{
+    padding: 5px 10px;
+    background-color: #e9efff;
+    color: black;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.tag a{
+    font-size: 13px !important;
+}
+
+
+.tag_active{
+    color: white;
+    background-color: #23418f;
+}
+
+.tag_active a{
+    color: white;
+}
+
+.card_content_container p{
+    font-size: 13px;
+    margin-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: left;
+}
+
+.choose_recipe_mobile .card_title{
+    margin-bottom: 15px;
+}
+
+.add_to_card{
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+/*SERVINGS*/
+
+/* Custom select used from Delivery page */
+.add_recipes{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 160px;
+    z-index: 999;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.add_recipes .inner_section{
+    position: relative;
+    z-index: 999;
+}
+
+.add_recipes::after{
+    content: "";
+    display: block;
+    height: 170px;
+    width: 100%;
+    background-image: url(../public/uploads/add_recipes_mobile.png);
+    background-repeat: no-repeat;
+    background-position: 80% 0%;
+    position: absolute;
+    top: -50px;
+    right: 0;
+    z-index: 99;
+}
+
+.recipes_added{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.recipe_added_item {
+    border: 1px solid #23418f;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.added_confirm{
+    border: 1px solid #23418f;
+    background-color: #23418f;
+    color: white;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe_added_item p{
+    display: none;
+}
+
+#serving_form{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#serving_container{
+    width:74% !important;
+    position: relative;
+} 
+
+.select_serving{
+    color: #23418f !important;
+}
+
+.btn_submit_servings{
+    margin-right: 0;
+    margin-left: 0;
+    width: 49px;
+    height: 49px;
+}
+
+.btn_submit_servings p{
+    display: none;
+}
+
+#serving_container.active_select_btn{
+    border-radius: 0 0 30px 30px;
+}
+
+#choose_serving{
+    flex-direction: column-reverse;
+    position: absolute;
+    width: 100%;
+    bottom: 45px;
+    left: -2px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 25px;
+    background-color: white;
+    border-radius: 30px 30px 0 0;
+    border-left: 2px solid #23418f;
+    border-right: 2px solid #23418f;
+    border-top: 2px solid #23418f;
+}
+
+#choose_serving li{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+#choose_serving li:last-of-type{
+    border-bottom: 1px solid rgba(35, 65, 143,.8);
+    padding-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+/**************************************** CHOOSE BOX PAGE**********************************/
+    .choose_box_page .choose_box_section{
+        background-image: url(../public/uploads/choose_bg.png);
+        background-size: contain;
+        background-position: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    .choose_box_section{
+        position: relative;
+        padding:30px 0;
+        /* display: flex;
+        flex-direction: column; */
+    }
+
+    .choose_box_section .section_heading_container{
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        order: 1;
+    }
+
+    .choose_box_description{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        text-align: center;
+
+        background-color: white;
+        box-shadow: 0 0 25px 0 rgba(21, 34, 136,.16);
+        width: 90%;
+        margin:0 auto 50px auto;
+        padding: 25px 15px;
+    }
+
+    .choose_box_section>.inner_section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .choose_box_description .btn_container{
+        margin-top: 30px;
+    }
+
+    .choose_box_section .card{
+        position: relative;
+        box-shadow: 0 0 25px 0 rgba(21, 34, 136,.16);
+        margin-bottom: 50px;
+        border-radius: 10px;
+        cursor: pointer;
+        border:1px solid white;
+    }
+
+    .choose_box_section .card_item_count{
+        top: -20px;
+        left: -33%;
+        bottom: auto;
+        height: auto;
+        z-index: 1;
+    }
+
+    .choose_box_section .card:nth-of-type(2) .card_item_count{
+        top: 10%;
+    }
+
+    .choose_box_section .card:nth-of-type(3) .card_item_count{
+        top: auto;
+        bottom: 0;
+    }
+
+    .choose_box_section .card_img_container,
+    .choose_box_section .card_content_container{
+        background-color: white;
+        overflow:hidden;
+        z-index: 2;
+    }
+
+    .choose_box_section .card_img_container{
+        display: block;
+        border-radius: 10px 10px 0 0;
+        padding: 30px 20px 15px 15px;
+        overflow:hidden;
+    } 
+
+    .choose_box_section .card_content_container{
+        border-radius: 0 0 10px 10px; 
+        padding: 0 15px 30px 15px;   
+        overflow:hidden;
+    }
+
+    .choose_box_section .card_title{
+        margin-bottom: 0;
+        font-weight: 350;
+    }
+
+    .choose_box_section .card svg{
+        display: none;
+        
+    }
+
+    .choose_box_section .active_card{
+        border:1px solid #324e96;
+    }
+
+    .choose_box_section .active_card:after{
+        content: "\f058";
+        font-family: "Font Awesome 5 Pro";
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 3;
+        color: #324e96;
+    }
+
+
+
+
+
+
+    /**************************************** THANK YOU PAGE**********************************/
+
+    .thank_you_section{
+        position: relative;
+        padding:30px 0 150px 0;
+    }
+
+    .thank_you_section .inner_section{
+        display: block;
+        text-align: center;
+    }
+
+    .thank_you_section p{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .thank_you_section p span{
+        font-weight: bold;
+    }
+
+    .thank_you_section .btn{
+        max-width: 300px;
+    }
+
+
+
+    /************************************************ ORDER PREVIEW PAGE ****************************************************/
+
+    .order_preview_section{
+        background-image: url(../public/uploads/order_confirm.png);
+        background-position: bottom;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin:10px 0;
+        padding: 50px 0;
+    }
+
+    .order_preview_section .section_heading_container{
+        margin-bottom: 50px;
+    }
+
+    .order_list_content h3{
+        margin-left:15px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+
+    .order_item{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 10px;
+        border-top: 1px solid rgba(78, 78, 78,.17);
+    }
+
+    .order_item img,
+    .delete_btn{
+        width: 7%;
+        margin: 0 10px;
+    }
+
+    .order_item img{
+        max-width: 30px;
+    }
+
+    .order_content{
+        width: 82%;
+    }
+
+    .price_container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        border-top: 2px solid #324e96;
+        padding: 15px 10px 40px 10px;
+    }
+
+    .price_container h4{
+        font-size: 1.3em;
+    }
+
+    .order_preview_section form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .order_preview_section form hr{
+        width: 100%;
+        color: rgba(50, 78, 149,.4);
+        margin: 20px 0;
+    }
+
+    .order_preview_section .form_item{
+        margin: 0 10px;
+        border-radius: 20px;
+        width: 44%;
+        border: 1px solid rgba(50, 78, 149,.4);
+        padding:10px 10px
+    }
+
+    .order_preview_section .btn{
+        border:none;
+        padding: 15px 50px;
+    }
+
+    .order_preview_section .back_btn{
+        display: flex;
+        justify-content: center;
+        margin:30px auto
+    }
+
+    .allergens{
+        font-size: 13px;
+        color: red;
+    }
+
+
+
+
+
+/************************************************ DELIVERY PAGE ****************************************************/
+    .delivery_section{
+        padding: 50px 0 250px 0;
+        background-image: url(../public/uploads/delivery.png);
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .delivery_section .inner_section{
+        background-color: white;
+        border-radius: 20px;
+        padding:50px 20px;
+        box-shadow: 0 0 25px 0 rgba(21, 34, 136,.09);
+    }
+
+    .delivery_section .section_heading_container{
+        margin-bottom: 50px;
+    }
+
+    .form_item{
+        position: relative;
+    }
+
+    .form_item i{
+        cursor: pointer;
+        pointer-events: none;
+        position: absolute;
+        right: 30px;
+        top:12.5px;
+        font-size: 25px;
+        font-weight: 350;
+        z-index: 2;
+    }
+
+    #delivery_form>div,
+    #add_adress_form>div{
+        margin-bottom: 25px;
+    }
+
+    input[type="date"],
+    input[type="text"],
+    input[type="time"],
+    input[type="email"],
+    input[type="number"],
+    #delivery_adress_container,
+    #adress_city_container,
+    #adress_type_container,
+    #serving_container{
+        border: 2px solid #23418f;
+        border-radius: 30px;
+        min-height: 50px;
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        display: block;
+        background-color: white;
+    }
+
+    .error_input{
+        border: 2px solid red !important;
+        color: red;
+    }
+
+    .error_input::placeholder{
+        color: red;
+    }
+
+    .active_select_btn{
+        border-top: 2px solid #23418f;
+        border-right: 2px solid #23418f;
+        border-bottom:none;
+        border-left: 2px solid #23418f;
+        border-radius: 30px 30px 0px 0px;
+    }
+
+    /* .custom_select ul{
+        border-right: 2px solid #23418f;
+        border-bottom: 2px solid #23418f;
+        border-left: 2px solid #23418f;
+        border-radius: 0 0 30px 30px;
+        min-height: 50px;
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+        cursor: pointer;
+        position: relative;
+        z-index: 999;
+        display: block;
+        background-color: white;
+    }  */
+
+    input::placeholder,
+    #choose_date,
+    #choose_time,
+    .custom_select a { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: rgba(0, 0, 0,.5);
+        opacity: 1; /* Firefox */
+        font-size: 15px;
+    }
+      
+    input:-ms-input-placeholder,
+    .custom_select a  { /* Internet Explorer 10-11 */
+        color: rgba(0, 0, 0,.5);
+        font-size: 15px;
+      }
+      
+    input::-ms-input-placeholder,
+    .custom_select a { /* Microsoft Edge */
+        color: rgba(0, 0, 0,.5);
+        font-size: 15px;
+      }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
+    .select_adress{
+        display: flex;
+        align-items: center;
+    }
+
+    #ui-datepicker-div{
+        border: 2px solid #23418f;
+        z-index: 9999 !important;
+    }
+
+    .ui-widget-header{
+        background: #23418f !important;
+    }
+
+    .ui-widget-header *{
+        color: white;
+    }
+
+    .custom_select ul{
+        display: none;
+    }
+
+    .custom_select ul li{
+        padding:10px;
+    }
+
+    .custom_select_btn{
+        display: flex;
+        align-items: center;
+        margin: auto;
+        min-height: 50px;
+    }
+
+    .custom_select ul li:hover,
+    .selected{
+        background-color: #23418f;
+        color: white;
+    }
+
+    .selected p,
+    .custom_select ul li:hover p{
+        color: white;
+    }
+
+    .selected img,
+    .custom_select ul li:hover img{
+        filter: invert(1);
+    }
+
+    .custom_select ul li:last-of-type{
+        padding-bottom: 20px;
+    }
+
+    input[type="submit"]{
+        border: none;
+    }
+
+
+    input[type="text"]::after{
+        content: "x";
+        display: block;
+        width: 50px;
+        height: 50px;
+    }
+
+    input[type="email"]{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .active_selector{
+        transform: rotate(180deg)
+    }
+
+    .active_select{
+        display: block !important;
+    }
+
+    .open_popup{
+        display: block;
+        width: 55%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-family: "Axiforma SemiBold", serif;
+        text-align: center;
+    }
+
+    #delivery_form p{
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #delivery_form p span{
+        color: #23418f;
+        text-decoration: underline;
+    }
+
+    .adress_popup{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .6);
+        z-index: 999;
+        
+        overflow-y:scroll;
+        overflow-x: hidden;
+    }
+
+    .adress_popup .inner_section{
+        position: relative;
+        margin-top: 30px;
+        width: 90%;
+        z-index: 9999;
+        background-color: white;
+        border-radius: 30px;
+        padding: 20px 10px;
+        overflow-y:scroll;
+        overflow-x: hidden;
+    }
+
+    .adress_popup h4{
+        color: #23418f;
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .close_popup{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-weight: lighter;
+        font-size: 20px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+
+footer{
+    position: relative;
+    background-color: #0e1a3b;
+}
+
+footer *{
+    color: white;
+}
+
+footer::before{
+    display: block;
+    content:"";
+    background-image: url(../public/uploads/footer_mobile.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    height: 60px;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    padding-top: 20px;
+}
+
+footer .inner_section{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_logo{
+    position: absolute;
+    width: 33%;
+    left: 33%;
+    right: 33%;
+    top: -20px;
+    display: block;
+    text-align: center;
+}
+
+.footer_navigation{
+    padding-bottom: 30px;
+    order: 2;
+}
+
+.footer_navigation ul:first-of-type{
+    border-top: 1px solid rgba(255, 255, 255,.16);
+}
+
+.footer_navigation ul:first-of-type li{
+    padding-bottom: 20px;
+    padding-left: 30px;
+}
+
+.footer_navigation ul:first-of-type li:first-of-type{
+    padding-top: 30px;
+}
+
+.footer_navigation ul:last-of-type{
+    padding-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255,.16);
+}
+
+.footer_navigation ul:last-of-type li:first-of-type{
+    width: 100%;
+}
+
+.footer_navigation ul:last-of-type li{
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+.footer_navigation ul:last-of-type li i{
+    font-size: 25px;
+}
+
+.footer_contacts{
+    padding-top: 100px;
+    padding-left: 30px;
+    order: 1;
+    border-top: 1px solid rgba(255, 255, 255,.16);
+    width: 50%;
+}
+
+.footer_contacts::before{
+    display: block;
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: rgba(255, 255, 255,.16);
+    position: absolute;
+    top: 100px;
+    left: 0;
+}
+
+.footer_contact{
+    display: flex;
+    margin-top: 35px;
+}
+
+.footer_contact i{
+    margin-right: 10px;
+    color: #fcbe2a;
+}
+
+.footer_contact:last-of-type{
+    margin-bottom: 35px;
+}
+
+.copyrights{
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: .75em;
+    border-top: 1px solid rgba(255, 255, 255,.16);
+    order: 3;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .order_preview_section form{
+        display: block;
+    }
+    .order_preview_section .form_item{
+        width:100%;
+        margin-bottom: 20px;
+    }
+
+    .form_item i{
+        top: 7px;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .order_list_content{
+        background-color: white;
+        box-shadow: 0 0 25px 0 rgba(21, 34, 136,.16);
+        padding: 30px 20px;
+        margin-bottom: 50px;
+    }
+}
+
+
+@media only screen and (min-width: 400px) {
+   /************************************************HEADER***************************************/ 
+    header{
+        height: 115px;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .how_it_works_section::after{
+        height: 4em;
+        bottom: -4em;
+    }
+/*FOOTER*/
+    footer::before{
+        height: 80px;
+        top: -80px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+/************************************************HEADER***************************************/
+    header{
+        height: 125px;
+    }
+
+/************************************************HERO***************************************/
+    .bg_hero_mobile{
+        display: none;
+    }
+
+    .bg_hero_desktop{
+        display: block;
+    }
+
+    .inner_hero .bg_hero_desktop{
+        display: none;
+    }
+
+    .home_hero{
+        height: 87vh;
+    }
+
+    .home_hero:after{
+        height: 45px;
+    }
+
+    .home_slider .slider_navigation{
+        width: 30%;
+        left: 35%;
+        right: 35%;
+    }
+
+    .how_it_works_section::after{
+        height: 5em;
+        bottom: -5em;
+    }
+
+/*FOOTER*/
+    .home_page{
+        margin-bottom: 100px;
+    }
+
+    /* footer{
+        margin-top: 100px;
+    } */
+
+    footer::before{
+        height: 100px;
+        top: -70px;
+        background-image: url(../public/uploads/footer.png);
+        background-size: contain;
+    }
+
+    footer .inner_section{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .footer_navigation,
+    .footer_contacts{
+        width: 45%;
+    }
+
+    .footer_navigation{
+        padding-top: 100px;
+        border-top: none;
+    }
+
+    .footer_navigation ul:first-of-type{
+        border-top: none;
+    }
+
+    .copyrights{
+        width: 100%;
+    }
+
+/************************************************ DELIVERY PAGE ****************************************************/
+    .adress_popup .inner_section{
+        padding: 50px 30px;
+        width: 80%;
+
+    }
+
+    #add_adress_form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #adress_city_container,
+    #adress_type_container,
+    #adress_street_container{
+        width: 100%;
+    }
+
+    #adress_apartment_container,
+    #adress_floor_container,
+    #adress_entrance_container,
+    #adress_number_container{
+        width: 49%;
+    }
+
+/*SERVINGS*/
+
+/* Custom select used from Delivery page */
+
+    .add_recipes::after{
+        background-size: cover;
+        top: -78px;
+}
+
+@media only screen and (min-width: 768px) {
+    .how_it_works_section::after{
+        height: 5.5em;
+        bottom: -5.5em;
+    }
+
+    .choose_box_section .card_item_count{
+        left: -20%;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+/************************************************HEADER***************************************/
+    header{
+        background-image: url(../public/uploads/header_desktop.png);
+        height: 145px;
+    }
+
+    header .inner_section{
+        height: 70%;
+    }
+
+    .header_logo_container{
+        top: 50px;
+    }
+/**********************************************************************************************LOGIN SECTIONS**********************************************************/
+    .login_container .inner_section{
+        width: 50%;
+    }
+
+
+/**************************************** HOW IT WORKS SECTION **********************************/
+    .how_it_works_section::after{
+        background-image: url(../public/uploads/how_it_works_after_desktop.png);
+        background-position: center right;
+    }
+
+  
+/**************************************** BANNER TYPE 1 SECTION **********************************/
+    
+    .banner_type1{
+        position: unset;
+    }
+
+    .banner_type1 .inner_section{
+        display: flex;
+        align-items: center;
+        padding-bottom: 0;
+    } 
+
+    .banner_type1 .banner_container:last-of-type{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40%;
+    }
+
+    .banner_type2 .banner_container:last-of-type{
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    .banner_type1 img{
+        position: absolute;
+        margin-top: 50px;
+        width: 55%;
+        left: 0;
+        z-index: 5;
+    }
+
+    .banner_container:last-of-type{
+        padding: 15.5vh 0 5vh 0;
+        margin-left: 53%;
+    }
+
+    .banner_heading{
+        font-size: 2.2em;
+        width: 100%;
+    }
+
+    .banner_type1 .btn_container{
+        margin-left: 0;
+    }
+
+/**************************************** WHATS IN THE BOX SECTION SECTION **********************************/
+    .inside_box_section{
+        background-position:130% -100% !important;
+    }
+
+
+/**************************************** CHOOSE BOX PAGE**********************************/
+
+    .choose_box_section>.inner_section{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .choose_box_section .card{
+        width: 40%;
+    }
+
+    .choose_box_section .card_item_count{
+        left: -15%;
+    }
+
+    .add_recipes .inner_section{
+        width: 60%;
+    }
+
+    .recipe_added_item,
+    .added_confirm{
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .thank_you_section p{
+        font-size: 22px;
+    }
+
+    .dropdown-menu ul li{
+        margin: 100px 0;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+/************************************************HEADER***************************************/
+    header{
+        height: 115px;
+    }
+
+/**************************************** WHATS IN THE BOX SECTION SECTION **********************************/
+
+    .inside_box_slider .slider_navigation{
+        display: none;
+    }
+
+    .tag_list{
+        width: 60%;
+    }
+
+    .recipes_section .slider_navigation{
+        width: 100px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+/**************************************** HOME RECIPE SECTION**********************************/
+    .recipes_section .section_heading_container .section_heading{
+        width:20%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /*Add recipes*/
+
+    .add_recipes .inner_section{
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+    } 
+
+    .recipes_added,
+    #serving_form{
+        width: 50%;
+    }
+
+    .recipe_added_item,
+    .added_confirm{
+        cursor: pointer;
+        width: 70px;
+        height: 70px;
+    }
+
+    .btn_submit_servings{
+        width: auto;
+        height: auto;
+    }
+
+    .recipe_added_item p,
+    .btn_submit_servings p{
+        display: block;
+        text-align: center;
+    }
+
+    .recipe_added_item svg,
+    .btn_submit_servings svg{
+        display: none;
+    }
+
+    .add_recipes::after{
+        background-image: url(../public/uploads/add_recipes_desktop.png);
+    }
+
+/************************************************ ORDER PREVIEW PAGE ****************************************************/
+    .order_preview_section .inner_section{
+        width: 60%;
+    }
+
+    
+/************************************************ DELIVERY PAGE ****************************************************/
+    .delivery_section{
+        background-size: auto;
+    }
+
+    .delivery_section .inner_section{
+        padding: 50px 30px;
+        width: 60%;
+    }
+
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .btn{
+        font-size: 1em;
+        transition: all .5s;
+    }
+
+    #ui-datepicker-div{
+        width: 40% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .btn_white:hover{
+        background-color: #324e96;
+        color: white;
+    }
+
+    .btn_blue:hover{
+        background-color: white;
+        color: #324e96;
+    }
+
+    .btn_blue:hover p{
+        color: #324e96;
+    }
+
+    .apple_btn:hover{
+        background-color: white;
+        color: black;
+    }
+
+    .apple_btn:hover i{
+        color: black;
+    }
+
+    .facebook_btn:hover{
+        background-color: white;
+        color: #3f66af;
+    }
+
+    .facebook_btn:hover i{
+        color: #3f66af;
+    }
+
+    .open_nav_btn{
+        display: none;
+    }
+
+
+    .nav_container{
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: 100%;
+        /* background-color: rgba(255, 255, 255,0); */
+        background-image: none;
+    }
+
+    .header_btn_container,
+    .lang_selector{
+        width: auto;
+    }
+
+    .header_logo_container{
+        top: 0;
+        height: 82%;
+    }
+
+    .header_logo_mobile{
+        display: none;
+    }
+
+    .header_logo_desktop{
+        display: block;
+    }
+
+    .header_container{
+        width: 100%;
+    }
+
+    .dropdown-menu{
+        margin-top:0;
+        width: 100%;
+    }   
+
+    .dropdown-menu ul{
+        display: flex;
+        width: 100%;
+    }
+
+    .dropdown-menu ul li a{
+        font-size: 17px;
+    }
+
+    .dropdown-menu ul li:nth-of-type(3){
+        margin-right: auto;
+    }
+    
+    .dropdown-menu ul li svg,
+    .dropdown-menu ul li:nth-of-type(1){
+        display: none;
+    }
+
+    .dropdown-item{
+        margin: 0 50px;
+    }
+
+    .dropdown-item:first-of-type{
+        margin-left: 0;
+    }
+
+    .header_btn_container .btn_login{
+        width: 120px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 35px;
+        border-width: 2px;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-left: 70px;
+    }
+
+    .btn_login svg{
+        display: none;
+    }
+
+    .header_btn_container .btn_login p{
+        display: block;
+    }
+
+
+/**********************************************************************************************LOGIN SECTIONS**********************************************************/
+    .login_container .inner_section{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: stretch;
+        width: 90%;
+    }
+
+    .login_container h2,
+    .login_container p:not(.card_item_count){
+        width: 100%;
+    }
+
+    .login_container .steps_slider{
+        display: block;
+        width: 40%;
+        height: 100%;
+    }
+
+    .login_container .register_container{
+        width: 40%;
+    }
+
+    .login_container .card_content_container{
+        margin-top: 20px;
+    }
+
+    .login_container lord-icon{
+        width: 200px !important;
+        height: 200px !important;
+        margin-top: 20px;
+    }
+
+    .login_container .card_item_count{
+        bottom: 0;
+        left: 40px;
+    }
+
+/*HOME HERO SECTION*/
+    .home_hero{
+        height: 95.5vh;
+    }
+
+    .hero_container{
+        width: 40%;
+    }
+
+    .home_hero_heading{
+        font-size: 3.35em;
+        line-height: 1.25em;
+    }
+
+    .home_hero .hero_container{
+        top: 29%;
+    }
+
+    .home_hero .hero_text{
+        font-size: 22px;
+    }
+
+/**************************************** CHOOSE BOX PAGE**********************************/
+    .choose_box_page .inner_hero .hero_heading{
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .choose_box_description{
+        order: 3;
+    }
+
+    .choose_box_section>.inner_section{
+        order: 2;
+    }
+
+    .choose_box_section .card{
+        width: 25%;
+    }
+
+    /************************************************ DELIVERY PAGE ****************************************************/
+
+
+    .adress_popup .inner_section{
+        width: 60%;
+    }
+
+
+}
+
+@media only screen and (min-width: 1300px) {
+    .header_logo_container{
+        z-index: 99999;
+    }
+/**************************************** BANNER TYPE 1 SECTION **********************************/
+  
+    .banner_container:last-of-type{
+        padding:21.5vh 0 11vh 0;
+        margin-left: 53%;
+    }
+
+/****************************************RECIPE PAGE SECTION**********************************/
+.recipes_page_mobile{
+    display: none;
+}
+
+.recipes_menu_container{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 25px;
+    row-gap: 25px;
+}
+
+.choose_recipe_desktop{
+    display: block;
+    padding-bottom: 100px;
+}
+
+.recipes_menu_container>div{
+    position: relative;
+    display: block  ;
+    height: auto;
+    min-height: 400px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px 0 rgba(21, 34, 136,.16);
+    padding: 0;
+}
+
+.item .card_img_container,
+.top_item .card_img_container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.item .card_img_container{
+    height: 50%;
+}
+
+.item .card_title{
+    font-size: 15px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 17px;
+}
+
+.top_item .card_title{
+    font-size: 17px;
+    text-align: left;
+}
+
+.item .card_content_container p{
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 29px;
+}
+
+.top_item .card_img_container{
+    height:  75.7%;
+}
+
+.top_item .card_img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item .card_img_container>img,
+.top .card_img_container>img{
+    width: 100%;
+}
+
+
+.item .card{
+    margin: 0;
+}
+
+.item .card_content_container{
+    position: absolute;
+    top: 55%;
+}
+
+.top_item .card_content_container{
+    position: absolute;
+    top: 79%;
+    left: 0;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+/* .item{
+    grid-area: item;
+}*/
+
+.top_item{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+} 
+
+/*FOOTER*/
+    .footer_navigation{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 30px;
+        padding: 0;
+        z-index: 9;
+    }
+
+    .footer_navigation ul:first-of-type{
+        display: flex;
+        align-items: center;
+    }
+
+    .footer_navigation ul:first-of-type li{
+        padding-bottom: 0;
+    }
+
+    .footer_navigation ul:last-of-type li{
+        margin-top: 0;
+    }
+
+    .footer_navigation ul:first-of-type li:first-of-type{
+        padding-top: 0px;
+    }
+
+    .footer_navigation ul:last-of-type li:first-of-type{
+        width: auto;
+    }
+
+    .footer_contacts{
+        width: 100%;
+        order: 2;
+        display: flex;
+        justify-content: center;
+        border-top: none;
+        padding-top: 50px;
+    }
+
+    .footer_contacts .footer_contact{
+        margin-right: 45px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .footer_navigation ul:last-of-type{
+        border-top: 0;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+/**************************************** WHATS IN THE BOX SECTION SECTION **********************************/
+    .inside_box_section{
+        padding-top: 200px;
+        padding-bottom: 200px;
+        background-position:130% -100% !important;
+    }
+
+/**************************************** BANNER TYPE 2 SECTION **********************************/
+    .banner_type2{
+        background-image: url(../public/uploads/bg_section_4_desktop.png);
+        background-size: cover;
+        width: 100%;
+    }
+
+/************************************************ DELIVERY PAGE ****************************************************/
+    
+    .delivery_section .inner_section{
+        width: 40%;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .adress_popup .inner_section{
+        width: 40%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .adress_popup .inner_section{
+        overflow: hidden;
+    }
+
+    .choose_box_description{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        text-align: center;
+
+        background-color: transparent;
+        box-shadow:none;
+        width: 50%;
+        margin:0 auto 50px auto;
+        padding: 0 0 50px 0 ;
+    }
+
+}
+
+@media only screen and (min-width: 1600px) {  
+/****************************************REUSABLE**********************/
+.section_heading{
+    font-size: 40px;
+}
+
+/****************************************Home HERO**********************/
+
+    .home_hero:after,
+    .inner_hero:after{
+        background-image: url(../public/uploads/hero_wave_desktop.png);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: cover;
+        width: 110%;
+        left: -5%;
+    }
+
+
+/**************************************** HOW IT WORKS SECTION **********************************/
+    .how_it_works_section{
+        padding: 90px 0 80px 0;
+    }
+
+    .how_it_works_section .inner_section{
+        display: flex;
+        justify-content: space-between;
+        width: 64.8%;
+    }
+
+    .how_it_works_section .inner_section .card{
+        display: block;
+        width: 22%;
+    }
+
+    .how_it_works_section .card:nth-of-type(even){
+        margin-top: 10%;
+    }
+
+    .how_it_works_section .card:nth-of-type(odd)::after{
+        bottom: 61%;
+        transform: rotate(-80deg);
+        right: -50px;
+    }
+
+    .how_it_works_section .card:nth-of-type(even)::after{
+        right: -50px;
+        left: auto;
+        bottom: 20%;
+        
+        transform: rotate(-90deg);
+    }
+
+    .how_it_works_section .card_text{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+/**************************************** BANNER TYPE 1 SECTION **********************************/
+    .how_it_works_section::after{
+        height: 6.5em;
+        bottom: -6.5em;
+    }
+
+/*FOOTER*/
+    footer .inner_section{
+        width: 93%;
+    }
+
+    footer::before{
+        width: 100%;
+        background-size: cover;
+    }
+
+    .footer_contact{
+        align-items: center;
+    }
+
+    .footer_contact:first-of-type p{
+        width: 70%;
+    }
+
+    .copyrights{
+        border-top: none;
+        width: 100%;
+    }
+
+    .copyrights::before{
+        display: block;
+        height: 1px;
+        width: 100%;
+        content: "";
+        margin-bottom: 20px;
+        background-color: rgba(255, 255, 255,.16);
+    }
+}
+
+@media only screen and (min-width: 1700px) {
+}
+
+@media only screen and (min-width: 1800px) {
+    .inner_hero{
+        height: 50.6vh;
+    }
+
+    .btn{
+        padding-left: 44px;
+        padding-right: 44px;
+    }
+
+    .btn *{
+        font-weight: lighter;
+    }
+
+    .section_heading{
+        margin-bottom: 12px;
+        line-height: 1;
+    }
+
+    .section_heading_text{
+        font-size: 1.4em;
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .home_hero .hero_container {
+        top: 34%;
+    }
+
+    .home_hero_heading{
+        font-size: 60px;
+    }
+
+
+/**********************************************************************************************LOGIN SECTIONS**********************************************************/
+    .login_container{
+        height: 100vh;
+    }
+    .login_container .inner_section{
+        top: 10%;
+        width: 82.5%;
+        justify-content: unset;
+    }
+
+    .login_container .inner_section>h2{
+        font-size: 40px;
+        font-family: "Axiforma SemiBold",serif;
+        font-weight: lighter;
+        margin-bottom: 10px;
+    }
+
+    .login_container .inner_section>p:first-of-type{
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    .login_container .section_heading{
+        font-size: 22px;
+        margin-bottom: 68px;
+    }
+
+    .login_container .card_text{
+        font-size: 17px;
+        text-align: justify;
+    }
+
+    
+    .login_container lord-icon{
+        width: 270px !important;
+        height: 270px !important;
+    }
+
+    .login_container .steps_slider{
+        width: 39%;
+        margin-left: 5.4%;
+        margin-right: 5.5%;
+    }
+
+    .login_container .register_container{
+        border-left: 1px solid rgba(35, 65, 143,.5);
+        padding-left: 14%;
+    }
+
+    .steps_slider .section_heading{
+        margin-bottom: 0px;
+    }
+
+    .login_container .slider_navigation{
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .login_container form,
+    .register_container p,
+    .register_container a,
+    .register_container .section_heading{
+        width: 90%;
+    }
+
+/**************************************** HOW IT WORKS SECTION **********************************/
+    .how_it_works_section{
+        padding-bottom: 0;
+    }
+
+    .how_it_works_section::after{
+        height: 8em;
+        bottom: -8em;
+    }
+
+    
+    .how_it_works_section .inner_section .card {
+        width: 24%;
+    }
+
+    .how_it_works_section .card_text{
+        font-size: 17px;
+    }
+
+    .how_it_works_section .card_title{
+        font-size: 22px;
+        font-weight: lighter;
+    }
+
+    .how_it_works_section .card:nth-of-type(2n+1)::after {
+        bottom: 52%;
+        right: -20px;
+        z-index: 9;
+    }
+
+
+/**************************************** BANNER TYPE 1 SECTION **********************************/
+    .banner_type1{
+        position: unset;
+    }
+
+    .banner_type1 .btn_container{
+        width: auto;
+    }
+
+    .banner_type1 img{
+        position: absolute;
+        margin-top: 90px;
+        left: 6.6%;
+        z-index: 5;
+        width: 43%;
+    }
+
+    .banner_container:last-of-type{
+        padding: 24vh 0 15.5vh 0;
+        margin-left: 53%;
+    }
+
+    .banner_type1 .banner_heading{
+        font-size: 2.5em;
+        width: 100%;
+    }
+
+    .banner_type1 .btn_container{
+        margin-left: 0;
+    }
+/**************************************** BANNER TYPE 2 SECTION **********************************/
+
+    .banner_type2{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .banner_type2 .banner_heading{
+        width: 85%;
+        font-size: 2.5em;
+    }
+
+/**************************************** WHATS IN THE BOX SECTION SECTION **********************************/
+    .inside_box_section {
+        padding-bottom: 141px;
+        padding-top: 141px;
+        background-position:125% 120% !important;
+        background-size: 48% !important;
+    }
+
+    .inside_box_slider .card_img_container img{
+        width: 100px;
+    }
+
+    .inside_box_section .section_heading_text{
+        font-size: 22px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .inside_box_section .inner_section{
+        width: 81.2%;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .inside_box_slider .card{
+        width: 94%;
+        border:1px solid #afc0ee;
+    }
+
+    .inside_box_slider .card:hover{
+        border:0px solid #afc0ee;
+        box-shadow: 0 0 25px 0 rgba(21, 34, 136,.16);
+    }
+
+/****************************************RECIPE SECTION**********************************/
+    .recipes_section{
+        padding-top: 98px;
+    }
+
+    .recipes_section .swiper-wrapper{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .recipes_section .inner_section{
+        width: 76.5%;
+        margin: 0 auto;
+    }
+
+    .tag_list_container{
+        width: 100%;
+    }
+
+    .home_recipes .tag_list_container{
+        width: 54%;
+    }
+
+    .home_recipes .inner_section{
+        width: 60%;
+    }
+
+    .home_recipes .swiper-slide .card{
+        min-height: 350px;
+    }
+
+
+    .home_recipes button{
+        display: none;
+    }
+
+    .home_recipes .slider_navigation{
+        margin-top: 0;
+        width: 0;
+        margin-bottom: 0;
+    }
+
+    .recipes_section .section_heading_container .section_heading{
+        width: 100%;
+
+    }
+
+    .recipes_section .section_heading_container .section_heading_text{
+        margin-bottom: 45px;
+        width: 43%;
+    }
+
+    .tag_list{
+        width: 90%;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .tag{
+        margin-left: 25px;
+        padding: 13px 30px;
+        cursor: pointer;
+    }
+
+    .tag:hover{
+        background-color: #23418f;
+    }
+
+    .tag:hover a{
+        color: white;
+    }
+
+    .tag a{
+        font-size: 15px !important;
+    }
+
+    .recipes_section .card_img_container{
+        height: 64%;
+    }
+
+    .recipe_time{
+        top: 15px;
+        left: 20px;
+        max-width: 95px;
+        padding: 12px 15px;
+        border-radius: 7px;
+    }
+
+    .recipe_time img{
+        width: 14px !important;
+        height: 14px !important;
+    }
+
+    .recipes_section .card_content_container{
+        top:64%;
+    }
+
+    .recipes_section .card_title{
+        font-size: 35px;
+        padding:17px 25px 15px 25px;
+        margin-bottom: 0;
+    }
+
+    .home_recipes .card_title{
+        font-size: .8em;
+        padding:17px 25px 15px 25px;
+        margin-bottom: 0;
+    }
+
+    .reviews_container{
+        padding-left: 25px;
+    }
+
+    .recipes_section .slider_navigation{
+        position: unset;
+    }
+
+    .recipes_section .swiper-button-next{
+        top: 65%;
+        right: 15%;
+        z-index: 99999;
+    }
+
+    .recipes_section .swiper-button-prev{
+        top: 35%;
+        left: 16.4%;
+        z-index: 99999;
+    }
+
+    .add_to_card{
+        font-size: 18px;
+    }
+
+
+
+/****************************************RECIPE PAGE SECTION**********************************/
+.recipes_page_mobile{
+    display: none;
+}
+
+.recipes_menu_container{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 25px;
+    row-gap: 25px;
+}
+
+.choose_recipe_desktop{
+    display: block;
+    padding-bottom: 200px;
+}
+
+.choose_recipe_desktop .inner_section{
+    width: 76.5%;
+}
+
+.recipes_menu_container>div{
+    position: relative;
+    display: block  ;
+    height: auto;
+    min-height: 400px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px 0 rgba(21, 34, 136,.16);
+    padding: 0;
+}
+
+.item .card_img_container,
+.top_item .card_img_container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.recipe_category{
+    left: 20px;
+}
+
+.item .card_img_container{
+    height: 56%;
+}
+
+.item .card_title{
+    font-size: 15px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 17px;
+}
+
+.top_item .card_title{
+    font-size: 17px;
+    text-align: left;
+}
+
+.item .card_content_container p{
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 29px;
+}
+
+.top_item .card_img_container{
+    height:  75.7%;
+}
+
+.top_item .card_img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item .card_img_container>img,
+.top .card_img_container>img{
+    width: 100%;
+}
+
+
+.item .card{
+    margin: 0;
+}
+
+.item .card_content_container{
+    position: absolute;
+    top: 59%;
+}
+
+.top_item .card_content_container{
+    position: absolute;
+    top: 79%;
+    left: 0;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+/* .item{
+    grid-area: item;
+}*/
+
+.top_item{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+} 
+
+
+/*SERVINGS*/
+.add_recipes .inner_section{
+    width: 93%;
+    justify-content: flex-start;
+}
+
+.recipe_added_item,
+.added_confirm{
+    width: 84px;
+    height: 84px;
+    padding: 5px;
+}
+
+.recipe_added_item p{
+    font-size: 15px;
+}
+
+.recipes_added{
+    width: 42%;
+}
+
+#serving_form{
+    width: 38.7%;
+    margin-left: 17.5%;
+    justify-content: space-between;
+}
+
+#serving_container{
+    max-width: 290px;
+}
+
+.select_serving{
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+.btn_submit_servings{
+    width: 237px;
+}
+
+
+
+
+
+
+/**************************************** CHOOSE BOX PAGE**********************************/
+    .choose_box_page .inner_hero .hero_heading{
+        width: 35%;
+    }
+
+    .choose_box_section{
+        padding: 90px 0 115px 0;
+    }
+
+    .choose_box_section .inner_section{
+        width: 51%;
+    }
+
+    .choose_box_section .section_heading_container{
+         margin-bottom: 40px;
+    }
+
+    .choose_box_section .card{
+        width: 26.5%;
+    }
+
+    
+
+    .choose_box_section .card_item_count{
+        font-size: 120px;
+        top: -40px;
+    }
+
+    .choose_box_section .card:nth-of-type(odd){
+        margin-top: 23px;
+        margin-bottom: 27px;
+    }
+
+    .choose_box_section .card_item_count{
+        top:-50px;
+    }
+
+    .choose_box_section .card:nth-of-type(2) .card_item_count{
+        top: 20%;
+    }
+
+    .choose_box_section .card:nth-of-type(3) .card_item_count{
+        bottom: -58px;
+    }
+
+    .choose_box_description{
+        width: 87%;
+        margin: 10px auto 0 auto;
+    }
+
+    .choose_box_description p{
+        font-size: 17px;
+    }
+
+    .choose_box_section .card_title{
+        width: 80%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 17px;
+    }
+
+    .choose_box_section .card_content_container{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+/**************************************** THANK YOU PAGE**********************************/
+    .thank_you_section p{
+        margin-top: 0px;
+        margin-bottom: 55px;
+    }
+
+/************************************************ ORDER PREVIEW PAGE ****************************************************/
+
+    .order_preview_section{
+        padding-top: 10px;
+        width: 100%;
+    }
+
+    .order_preview_section .inner_section{
+        width: 39%;
+    }
+
+    .order_list_content h3{
+        font-size: 1.3em;
+    }
+
+    .order_item{
+        padding-top: 35px;
+        padding-bottom: 25px;
+    }
+
+    .order_title{
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .order_text{
+        font-size: 13px;
+    }
+
+    .order_item .delete_btn{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .order_item .delete_btn i{
+        color: #4e4e4e;
+    }
+
+    .price_container h4{
+        font-size: 17px;
+    }
+
+    .price_container p{
+        font-size: 15px;
+    }
+
+    .order_preview_section form label{
+        font-size: 17px;
+    }
+    
+    .order_preview_section .form_item{
+        padding-left: 35px;
+    }
+
+    .order_preview_section form hr:last-of-type{
+        margin-bottom: 55px;
+    }
+
+/************************************************ DELIVERY PAGE ****************************************************/
+    
+    .delivery_page .inner_hero .hero_container{
+        width: 40%;
+        left:30%;
+        right: 30%;
+    }
+
+    .delivery_section{
+        padding-top:100px;
+    }
+
+    .delivery_section .inner_section{
+        padding-top: 5px;
+        width: 22%;
+    }
+
+    #delivery_form .form_item i, 
+    #add_adress_form .form_item i{
+        font-size: 18px;
+    }
+
+     input[type="date"], 
+    input[type="text"],
+     input[type="time"], 
+     input[type="email"], 
+     input[type="number"], 
+     #delivery_adress_container, 
+     #adress_city_container, 
+     #adress_type_container{
+         min-height: 50px;
+         max-height: unset;
+     } 
+
+    .adress_popup .inner_section{
+        padding-left: 11%;
+        padding-right: 11%;
+    }
+
+    .btn_submit_adress{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .close_popup{
+        top: 30px;
+        right: 30px;
+    }
+
+    .close_popup i{
+        font-weight: lighter;
+    }
+
+    .adress_popup .inner_section{
+        margin-top: 7.6%;
+    }
+
+    /*footer*/
+    footer::before{
+        padding-top: 40px;
+    }
+
+}
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+  }
+
+ .recipes_slider{
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .swiper-grid-column > .swiper-wrapper{
+    flex-direction: inherit !important;
+  }
+
+  .recipes_slider .swiper-slide{ 
+    background: #fff;
+    height: calc((100% - 20px) / 2);
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  } 
+
+  .recipes_slider .swiper-slide:nth-of-type(even){
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .recipes_slider .swiper-slide:nth-of-type(odd){
+    margin-bottom: 20px !important;
+  }
+
+  .swiper-button-prev::after, .swiper-rtl .swiper-button-next::after,
+  .recipes_section .swiper-button-next::after{
+    content: url(../public/uploads/arr_right_slider.png);
+  }
+
+  .swiper-button-prev::after, .swiper-rtl .swiper-button-next::after,
+  .recipes_section .swiper-button-prev::after {
+    content: url(../public/uploads/arr_left_slider.png);
+  }
+
+ 
