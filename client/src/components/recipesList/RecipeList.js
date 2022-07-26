@@ -1,20 +1,20 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLongArrowLeft, faLongArrowRight, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+
+import { RecipeItem } from "./RecipeItem";
+import { Intro } from '../base/Intro';
+
 
 export const RecipeList = () => {
 
     return (
         <main className="choose_recipes_page">
 
-            <section className="hero inner_hero">
-
-                <img className="bg_hero_mobile bg_inner" src="./uploads/choose_recipe.png" alt="" />
-                <img className="bg_hero_desktop bg_inner" src="./uploads/choose_recipe_desktop.png" alt="" />
-
-                <div className="hero_container">
-
-                    <h1 className="hero_heading home_hero_heading">Our menu</h1>
-                </div>
-
-            </section>
+           <Intro 
+                mobileIntroImage={'./uploads/choose_recipe.png'} 
+                desktopIntroImage={'./uploads/choose_recipe_desktop.png'} 
+                introHeading={"Our menu"} 
+            />
 
             <section className="choose_recipe_desktop">
 
@@ -25,7 +25,9 @@ export const RecipeList = () => {
 
                 <div className="inner_section">
                     <div className="tag_list_container">
-                        <button className="tag_scroll tag-scroll--left" type="button"><i className="fal fa-long-arrow-left" ></i></button>
+                        <button className="tag_scroll tag-scroll--left" type="button">
+                            <FontAwesomeIcon icon={faLongArrowLeft} />
+                        </button>
 
                         <ul className="tag_list">
                             <li className="tag" >
@@ -65,312 +67,125 @@ export const RecipeList = () => {
                         </ul>
 
 
-                        <button className="tag_scroll tag-scroll--right" type="button" ><i className="fal fa-long-arrow-right" ></i></button>
+                        <button className="tag_scroll tag-scroll--right" type="button" >
+                            <FontAwesomeIcon icon={faLongArrowRight} />
+                        </button>
+
                     </div>
                 </div>
 
                 <div className="inner_section">
                     <div className="recipes_menu_container">
 
-                        <div className="top_item vegan new">
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
-                                    </div>
+                        <RecipeItem
+                            author={'Ivan'}
+                            recipeImage={'./uploads/top.png'}
+                            cookTime={20}
+                            category={['new', 'top_item', 'vegan']}
+                            recipeTitle={'Korean rolls kimpab with soy sauce - Asian food'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                                    <div className="recipe_category">
-                                        <p className="category">new</p>
-                                    </div>
+                        />
 
-                                    <img src="./uploads/top.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Korean rolls kimpab with soy sauce - Asian food</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
+                        <RecipeItem
+                            author={'Dragan'}
+                            recipeImage={'./uploads/meal2.png'}
+                            cookTime={20}
+                            category={['best_seller', 'item', 'pascaterian']}
+                            recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                        <div className="item pascaterian best_seller">
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
+                        />
 
-                                    </div>
+                        <RecipeItem
+                            author={'Dragan'}
+                            recipeImage={'./uploads/meal3.png'}
+                            cookTime={20}
+                            category={['all_stars', 'item', 'pascaterian']}
+                            recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                                    <div className="recipe_category">
-                                        <p className="category">best seller</p>
-                                    </div>
+                        />
 
-                                    <img src="./uploads/meal2.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item pascaterian all_stars">
+                        <RecipeItem
+                            author={'Dragan'}
+                            recipeImage={'./uploads/meal1.png'}
+                            cookTime={20}
+                            category={['all_stars', 'item', 'asian']}
+                            recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
+                        />
 
-                                    </div>
+                        <RecipeItem
+                            author={'Pesho'}
+                            recipeImage={'./uploads/meal2.png'}
+                            cookTime={20}
+                            category={['new', 'item', 'meat']}
+                            recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                                    <div className="recipe_category">
-                                        <p className="category">all stars</p>
-                                    </div>
+                        />
 
-                                    <img src="./uploads/meal3.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item asian all_stars">
+                        <RecipeItem
+                            author={'Pesho'}
+                            recipeImage={'./uploads/meal2.png'}
+                            cookTime={40}
+                            category={['best_seller', 'item', 'asian']}
+                            recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
+                        />
 
-                                    </div>
+                        <RecipeItem
+                            author={'Pesho'}
+                            recipeImage={'./uploads/meal3.png'}
+                            cookTime={2}
+                            category={['new', 'item', 'vegetarian']}
+                            recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                                    <div className="recipe_category">
-                                        <p className="category">all stars</p>
-                                    </div>
+                        />
 
-                                    <img src="./uploads/meal1.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item meat new">
+                        <RecipeItem
+                            author={'Ivan'}
+                            recipeImage={'./uploads/meal3.png'}
+                            cookTime={42}
+                            category={['best_seller', 'item', 'vegetarian']}
+                            recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
+                        />
 
-                                    </div>
+                        <RecipeItem
+                            author={'Ivan'}
+                            recipeImage={'./uploads/meal1.png'}
+                            cookTime={23}
+                            category={['new', 'item', 'asian']}
+                            recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                                    <div className="recipe_category">
-                                        <p className="category">new</p>
-                                    </div>
+                        />
 
-                                    <img src="./uploads/meal2.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item asian best_seller">
+                        <RecipeItem
+                            author={'Ivan'}
+                            recipeImage={'./uploads/meal2.png'}
+                            cookTime={21}
+                            category={['best_seller', 'item', 'meat']}
+                            recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
+                        />
 
-                                    </div>
+                        <RecipeItem
+                            author={'Gosho'}
+                            recipeImage={'./uploads/meal1.png'}
+                            cookTime={21}
+                            category={['best_seller', 'item', 'vegetarian']}
+                            recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
+                            resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                                    <div className="recipe_category">
-                                        <p className="category">best seller</p>
-                                    </div>
-
-                                    <img src="./uploads/meal3.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item vegetarian new">
-
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
-
-                                    </div>
-
-                                    <div className="recipe_category">
-                                        <p className="category">new</p>
-                                    </div>
-
-                                    <img src="./uploads/meal3.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item vegetarian best_seller">
-
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
-
-                                    </div>
-
-                                    <div className="recipe_category">
-                                        <p className="category">best seller</p>
-                                    </div>
-
-                                    <img src="./uploads/meal3.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item asian new">
-
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
-
-                                    </div>
-
-                                    <div className="recipe_category">
-                                        <p className="category">new</p>
-                                    </div>
-
-                                    <img src="./uploads/meal3.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item meat best_seller">
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
-
-                                    </div>
-
-                                    <div className="recipe_category">
-                                        <p className="category">best seller</p>
-                                    </div>
-
-                                    <img src="./uploads/meal3.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item vegetarian best_seller">
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
-
-                                    </div>
-
-                                    <div className="recipe_category">
-                                        <p className="category">best seller</p>
-                                    </div>
-
-                                    <img src="./uploads/meal3.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="item vegetarian best_seller">
-
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
-
-                                    </div>
-
-                                    <div className="recipe_category">
-                                        <p className="category">best seller</p>
-                                    </div>
-
-                                    <img src="./uploads/meal3.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-
-                                    <a className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item vegetarian best_seller">
-
-                            <div className="card">
-                                <div className="card_img_container">
-                                    <div className="recipe_time">
-                                        <img src="./uploads/pan.png" alt="" />
-                                        <p className="time"><span>20</span> mins</p>
-
-                                    </div>
-
-                                    <div className="recipe_category">
-                                        <p className="category">best seller</p>
-                                    </div>
-
-                                    <img src="./uploads/meal3.png" alt="" />
-                                </div>
-                                <div className="card_content_container">
-                                    <h3 className="card_title">Thai traditional red curry soup with shrimps prawns and coconut milk</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                    <a href='/' className="add_to_card text_blue"><i className="far fa-plus-circle text_blue"></i> Add Recipe</a>
-                                </div>
-                            </div>
-                        </div>
-
+                        />
 
                     </div>
                 </div>
@@ -381,54 +196,37 @@ export const RecipeList = () => {
                 <div className="inner_section">
                     <div className="recipes_added">
                         <div className="recipe_added_item">
-                            <i className="far fa-plus-circle text_blue"></i>
+
+                            <FontAwesomeIcon icon={faPlusCircle} />
                             <p>Add recipe</p>
                         </div>
 
                         <div className="recipe_added_item">
-                            <i className="far fa-plus-circle text_blue"></i>
+                            <FontAwesomeIcon icon={faPlusCircle} />
                             <p>Add recipe</p>
                         </div>
 
                         <div className="recipe_added_item">
-                            <i className="far fa-plus-circle text_blue"></i>
+                        <FontAwesomeIcon icon={faPlusCircle} />
                             <p>Add recipe</p>
                         </div>
 
                         <div className="recipe_added_item">
-                            <i className="far fa-plus-circle text_blue"></i>
+                        <FontAwesomeIcon icon={faPlusCircle} />
                             <p>Add recipe</p>
                         </div>
 
                         <div className="recipe_added_item">
-                            <i className="far fa-plus-circle text_blue"></i>
+                        <FontAwesomeIcon icon={faPlusCircle} />
                             <p>Add recipe</p>
                         </div>
                     </div>
 
                     <form id="serving_form" action="">
-                        <div id="serving_container" className="form_item custom_select">
-                            <a className="select_serving custom_select_btn">Servings</a>
-                            <ul id="choose_serving">
-                                <li data-value="4">
-                                    <p>4 - servings</p>
-                                    <img src="./uploads/four.png" alt="" />
-                                </li>
-                                <li data-value="2">
-                                    <p>2 - servings</p>
-                                    <img src="./uploads/two.png" alt="" />
-                                </li>
-                                <li data-value="1">
-                                    <p>1 - servings</p>
-                                    <img src="./uploads/one.png" alt="" />
-                                </li>
-                            </ul>
-                            <i className="fas fa-chevron-down text_blue"></i>
-                        </div>
 
-                        <a href="?page=delivery" className="btn btn_blue btn_submit_servings">
+                        <a href="/" className="btn btn_blue btn_submit_servings">
                             <p className="text_white">Next</p>
-                            <i className="fal fa-long-arrow-right text_white" ></i>
+                            <FontAwesomeIcon icon={faLongArrowRight} />
                         </a>
                     </form>
                 </div>
