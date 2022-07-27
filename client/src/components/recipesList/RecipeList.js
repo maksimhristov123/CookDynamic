@@ -3,6 +3,7 @@ import { faLongArrowLeft, faLongArrowRight, faPlusCircle } from '@fortawesome/fr
 
 import { RecipeItem } from "./RecipeItem";
 import { Intro } from '../base/Intro';
+import { SectionHeading } from '../base/SectionHeading';
 
 
 export const RecipeList = () => {
@@ -18,10 +19,7 @@ export const RecipeList = () => {
 
             <section className="choose_recipe_desktop">
 
-                <div class="section_heading_container">
-                    <h2 class="section_heading">Our menu</h2>
-                    <p class="section_heading_text">It doesn’t matter what you’re in the mood for, you’ll find the perfect easy-to-cook meal that will leave you smiling.</p>
-                </div>
+                <SectionHeading heading={"Our menu"}  heading_text={"It doesn’t matter what you’re in the mood for, you’ll find the perfect easy-to-cook meal that will leave you smiling."}/>
 
                 <div className="inner_section">
                     <div className="tag_list_container">

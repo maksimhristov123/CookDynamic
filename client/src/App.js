@@ -4,6 +4,9 @@ import './App.css';
 import { RecipeList } from './components/recipesList/RecipeList';
 import { Register } from './components/userSpace/Register';
 import { Login } from './components/userSpace/Login';
+import { RecipeCreate } from './components/recipesList/RecipeCreate';
+import { RecipeEdit } from './components/recipesList/RecipeEdit';
+import { RecipeDetails } from './components/recipesList/RecipeDetails';
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
       <RecipeList />
       <Register/>
       <Login />
+      <RecipeCreate />
+      <RecipeEdit />
+      <RecipeDetails />
     </div>
   );
 }
