@@ -204,7 +204,6 @@
     .card{
         display: block;
         text-align: center;
-        width: 64%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -226,6 +225,7 @@
 
     .card_content_container{
         position: relative;
+        padding:20px;
         z-index: 2;
     }
 
@@ -1086,6 +1086,7 @@
 .add_to_card{
     text-decoration: underline;
     font-size: 15px;
+    margin-right:10px;
 }
 
 /*SERVINGS*/
@@ -1468,7 +1469,8 @@
 
 
 /************************************************ DELIVERY PAGE ****************************************************/
-    .delivery_section{
+    .delivery_section,
+    .register_section{
         padding: 50px 0 250px 0;
         background-image: url(../public/uploads/delivery.png);
         background-position: bottom left;
@@ -1476,14 +1478,16 @@
         background-size: contain;
     }
 
-    .delivery_section .inner_section{
+    .delivery_section .inner_section,
+    .register_section .inner_section{
         background-color: white;
         border-radius: 20px;
         padding:50px 20px;
         box-shadow: 0 0 25px 0 rgba(21, 34, 136,.09);
     }
 
-    .delivery_section .section_heading_container{
+    .delivery_section .section_heading_container,
+    .register_section .section_heading_container{
         margin-bottom: 50px;
     }
 
@@ -1503,7 +1507,8 @@
     }
 
     #delivery_form>div,
-    #add_adress_form>div{
+    #add_adress_form>div,
+    #register_form>div{
         margin-bottom: 25px;
     }
 
@@ -1512,6 +1517,7 @@
     input[type="time"],
     input[type="email"],
     input[type="number"],
+    input[type="password"],
     #delivery_adress_container,
     #adress_city_container,
     #adress_type_container,
@@ -1660,7 +1666,6 @@
     }
 
     input[type="email"]{
-        text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
@@ -1684,13 +1689,15 @@
         text-align: center;
     }
 
-    #delivery_form p{
+    #delivery_form p,
+    #register_form p{
         font-size: 15px;
         text-align: center;
         margin-bottom: 20px;
     }
 
-    #delivery_form p span{
+    #delivery_form p span,
+    #register_form p span{
         color: #23418f;
         text-decoration: underline;
     }
@@ -1737,50 +1744,6 @@
         font-weight: lighter;
         font-size: 20px;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* FOOTER */
 
@@ -2267,11 +2230,13 @@ footer .inner_section{
 
     
 /************************************************ DELIVERY PAGE ****************************************************/
-    .delivery_section{
+    .delivery_section,
+    .register_section{
         background-size: auto;
     }
 
-    .delivery_section .inner_section{
+    .delivery_section .inner_section,
+    .register_section .inner_section{
         padding: 50px 30px;
         width: 60%;
     }
@@ -2544,9 +2509,6 @@ footer .inner_section{
 
 .item .card_img_container,
 .top_item .card_img_container{
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
@@ -2554,6 +2516,7 @@ footer .inner_section{
 
 .item .card_img_container{
     height: 50%;
+    min-height: 210px;
 }
 
 .item .card_title{
@@ -2593,11 +2556,6 @@ footer .inner_section{
 
 .item .card{
     margin: 0;
-}
-
-.item .card_content_container{
-    position: absolute;
-    top: 55%;
 }
 
 .top_item .card_content_container{
@@ -2688,7 +2646,8 @@ footer .inner_section{
 
 /************************************************ DELIVERY PAGE ****************************************************/
     
-    .delivery_section .inner_section{
+    .delivery_section .inner_section,
+    .register_section .inner_section{
         width: 40%;
         background-color: transparent;
         box-shadow: none;
@@ -3197,10 +3156,6 @@ footer .inner_section{
 
 .item .card_img_container,
 .top_item .card_img_container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
 }
@@ -3232,8 +3187,9 @@ footer .inner_section{
     margin-bottom: 29px;
 }
 
-.top_item .card_img_container{
-    height:  75.7%;
+.top_item .card_img_container,
+.top_item .card_img_container>img{
+    min-height: 800px;
 }
 
 .top_item .card_img_container img{
@@ -3241,6 +3197,8 @@ footer .inner_section{
     height: 100%;
     object-fit: cover;
 }
+
+
 
 .item .card_img_container>img,
 .top .card_img_container>img{
@@ -3252,17 +3210,12 @@ footer .inner_section{
     margin: 0;
 }
 
-.item .card_content_container{
-    position: absolute;
-    top: 59%;
-}
 
 .top_item .card_content_container{
-    position: absolute;
+    /* position: absolute;
     top: 79%;
-    left: 0;
-    padding-right: 20px;
-    padding-left: 20px;
+    left: 0; */
+    padding: 20px;
 }
 
 /* .item{
@@ -3455,22 +3408,26 @@ footer .inner_section{
 
 /************************************************ DELIVERY PAGE ****************************************************/
     
-    .delivery_page .inner_hero .hero_container{
+    .delivery_page .inner_hero .hero_container,
+    .register_page .inner_hero .hero_container{
         width: 40%;
         left:30%;
         right: 30%;
     }
 
-    .delivery_section{
+    .delivery_section,
+    .register_section{
         padding-top:100px;
     }
 
-    .delivery_section .inner_section{
+    .delivery_section .inner_section,
+    .register_section .inner_section{
         padding-top: 5px;
         width: 22%;
     }
 
     #delivery_form .form_item i, 
+    #register_form .form_item i, 
     #add_adress_form .form_item i{
         font-size: 18px;
     }

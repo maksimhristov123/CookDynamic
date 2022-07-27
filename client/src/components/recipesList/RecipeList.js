@@ -10,10 +10,10 @@ export const RecipeList = () => {
     return (
         <main className="choose_recipes_page">
 
-           <Intro 
-                mobileIntroImage={'./uploads/choose_recipe.png'} 
-                desktopIntroImage={'./uploads/choose_recipe_desktop.png'} 
-                introHeading={"Our menu"} 
+            <Intro
+                mobileIntroImage={'./uploads/choose_recipe_desktop.png'}
+                desktopIntroImage={'./uploads/choose_recipe_desktop.png'}
+                introHeading={"Our menu"}
             />
 
             <section className="choose_recipe_desktop">
@@ -31,36 +31,36 @@ export const RecipeList = () => {
 
                         <ul className="tag_list">
                             <li className="tag" >
-                                <a className="all">#all</a>
+                                <a href="/" className="all">#all</a>
                             </li>
 
                             <li className="tag" >
-                                <a className="vegetarian">#vegetarian</a>
+                                <a href="/" className="vegetarian">#vegetarian</a>
                             </li>
                             <li className="tag" >
-                                <a className="vegan">#vegan</a>
+                                <a href="/" className="vegan">#vegan</a>
                             </li>
                             <li className="tag">
-                                <a className="meat">#meat</a>
+                                <a href="/" className="meat">#meat</a>
                             </li>
                             <li className="tag">
-                                <a className="asian">#asian</a>
+                                <a href="/" className="asian">#asian</a>
                             </li>
                             <li className="tag">
-                                <a className="pascaterian">#pascaterian</a>
+                                <a href="/" className="pascaterian">#pascaterian</a>
                             </li>
 
                             <li className="tag" >
-                                <a className="vegan">#vegan</a>
+                                <a href="/" className="vegan">#vegan</a>
                             </li>
                             <li className="tag">
-                                <a className="meat">#meat</a>
+                                <a href="/" className="meat">#meat</a>
                             </li>
                             <li className="tag">
-                                <a className="asian">#asian</a>
+                                <a href="/" className="asian">#asian</a>
                             </li>
                             <li className="tag">
-                                <a className="pascaterian">#pascaterian</a>
+                                <a href="/" className="pascaterian">#pascaterian</a>
                             </li>
 
 
@@ -207,17 +207,17 @@ export const RecipeList = () => {
                         </div>
 
                         <div className="recipe_added_item">
-                        <FontAwesomeIcon icon={faPlusCircle} />
+                            <FontAwesomeIcon icon={faPlusCircle} />
                             <p>Add recipe</p>
                         </div>
 
                         <div className="recipe_added_item">
-                        <FontAwesomeIcon icon={faPlusCircle} />
+                            <FontAwesomeIcon icon={faPlusCircle} />
                             <p>Add recipe</p>
                         </div>
 
                         <div className="recipe_added_item">
-                        <FontAwesomeIcon icon={faPlusCircle} />
+                            <FontAwesomeIcon icon={faPlusCircle} />
                             <p>Add recipe</p>
                         </div>
                     </div>
