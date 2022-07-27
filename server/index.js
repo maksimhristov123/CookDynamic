@@ -1,18 +1,16 @@
 const express = require('express');
+
+const {PORT} = require('./config/env');
+const routes = require('./routes');
 const {dbInit} = require('./config/db');
 
 const app = express();
 
+app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
-const start = () => {
-    try{
-        dbInit();
-        app.listen(3000, () => console.log('App listen on port 3000...'))
-    }catch(error){
-        console.error(error);
-        process.exit(1)
-    }
-}
+app.use(routes)
 
-start();
+dbInit();
+
+app.listen(PORT, () => console.log(`Server listen on port ${PORT}...`));
