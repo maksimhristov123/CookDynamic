@@ -28,45 +28,9 @@ export const RecipeCreate = () => {
 
                                     <input
                                         type="text"
-                                        id="username"
-                                        name="username"
-                                        placeholder="Name"
-                                        required
-                                    />
-
-                                </div>
-
-                                <div className="form_item">
-
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        placeholder="Email"
-                                        required
-                                    />
-
-                                </div>
-
-                                <div className="form_item">
-
-                                    <input
-                                        type="password"
-                                        id="password"
-                                        name="password"
-                                        placeholder="Password"
-                                        required
-                                    />
-
-                                </div>
-
-                                <div className="form_item">
-
-                                    <input
-                                        type="password"
-                                        id="repeatPassword"
-                                        name="repeatPassword"
-                                        placeholder="Repeat Password"
+                                        id="recipeTitle"
+                                        name="recipeTitle"
+                                        placeholder="Recipe Title"
                                         required
                                     />
 
@@ -76,9 +40,45 @@ export const RecipeCreate = () => {
 
                                     <input
                                         type="text"
-                                        id="profileImageUrl"
-                                        name="profileImageUrl"
-                                        placeholder="Profile Image path"
+                                        id="recipeDescription"
+                                        name="recipeDescription"
+                                        placeholder="Recipe Description"
+                                        required
+                                    />
+
+                                </div>
+
+                                <div className="form_item">
+
+                                    <input
+                                        type="text"
+                                        id="recipeCategories"
+                                        name="recipeCategories"
+                                        placeholder="Recipe Category"
+                                        required
+                                    />
+
+                                </div>
+
+                                <div className="form_item">
+
+                                    <input
+                                        type="number"
+                                        id="recipeTime"
+                                        name="recipeTime"
+                                        placeholder="Recipe Cook Time"
+                                        required
+                                    />
+
+                                </div>
+
+                                <div className="form_item">
+
+                                    <input
+                                        type="text"
+                                        id="recipeImage"
+                                        name="recipeImage"
+                                        placeholder="Recipe Image path"
                                     />
 
                                 </div>

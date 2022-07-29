@@ -1,23 +1,18 @@
 import {Header} from './components/base/Header';
 
 import './App.css';
-import { RecipeList } from './components/recipesList/RecipeList';
-import { Register } from './components/userSpace/Register';
-import { Login } from './components/userSpace/Login';
+// import { RecipeList } from './components/recipesList/RecipeList';
+// import { Register } from './components/userSpace/Register';
+// import { Login } from './components/userSpace/Login';
 import { RecipeCreate } from './components/recipesList/RecipeCreate';
-import { RecipeEdit } from './components/recipesList/RecipeEdit';
-import { RecipeDetails } from './components/recipesList/RecipeDetails';
+// import { RecipeEdit } from './components/recipesList/RecipeEdit';
+// import { RecipeDetails } from './components/recipesList/RecipeDetails';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <RecipeList />
-      <Register/>
-      <Login />
       <RecipeCreate />
-      <RecipeEdit />
-      <RecipeDetails />
     </div>
   );
 }
