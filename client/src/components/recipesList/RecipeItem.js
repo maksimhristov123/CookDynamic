@@ -6,7 +6,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 export const RecipeItem = (props) => {
     return (
         <div className={props.category.join(' ')}>
-            <a href="/" className="card">
+            <div href="/" className="card">
                 <div className="card_img_container">
                     <div className="recipe_time">
                         <img src="./uploads/pan.png" alt="" />
@@ -36,7 +36,7 @@ export const RecipeItem = (props) => {
                         </a>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
     )
 }

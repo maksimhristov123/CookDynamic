@@ -2147,7 +2147,7 @@
             }
 
             .add_recipes .inner_section,
-            .create-recipe-section > .inner_section {
+            .create-recipe-section>.inner_section {
                 width: 60%;
             }
 
@@ -2253,7 +2253,7 @@
 
             .delivery_section .inner_section,
             .register_section .inner_section,
-            .create-recipe-section .inner_section{
+            .create-recipe-section .inner_section {
                 padding: 50px 30px;
                 width: 60%;
             }
@@ -2481,7 +2481,7 @@
                 width: 60%;
             }
 
-            .details-recipe-section .card{
+            .details-recipe-section .card {
                 display: flex;
             }
 
@@ -3456,18 +3456,18 @@
             .register_section,
             .create-recipe-section,
             .choose_recipe_desktop,
-            .details-recipe-section{
+            .details-recipe-section {
                 padding-top: 100px;
                 padding-bottom: 50px;
             }
 
             .delivery_section .inner_section,
-            .register_section .inner_section{
+            .register_section .inner_section {
                 padding-top: 5px;
                 width: 22%;
             }
 
-            #recipe_create_form{
+            #recipe_create_form {
                 max-width: 400px;
             }
 
