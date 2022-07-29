@@ -1,77 +1,87 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightFromBracket, faArrowRightToBracket, faBowlFood, faConciergeBell, faInfoCircle, faTimes, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faArrowRightFromBracket,
+    faArrowRightToBracket,
+    faBowlFood,
+    faConciergeBell,
+    faInfoCircle,
+    faTimes,
+    faUser,
+    faUserPlus
+} from '@fortawesome/free-solid-svg-icons';
 
 export const Header = () => {
 
     return (
         <header>
-        <div className="inner_section">
-            <a href="/" className="header_logo_container">
-                <img className="logo_img header_logo_img header_logo_mobile" src="./uploads/header_logo.png" alt="logo" />
-                <img className="logo_img header_logo_img header_logo_desktop" src="./uploads/header_logo_desktop.png" alt="logo" />
-            </a>
+            <div className="inner_section">
+                <Link to="/" className="header_logo_container">
+                    <img className="logo_img header_logo_img header_logo_mobile" src="./uploads/header_logo.png" alt="logo" />
+                    <img className="logo_img header_logo_img header_logo_desktop" src="./uploads/header_logo_desktop.png" alt="logo" />
+                </Link>
 
-            <div className="header_container">
-                <a href="/" className="open_nav_btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </a>
+                <div className="header_container">
+                    <button className="open_nav_btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
 
-                <div className="nav_container">    
-                        <div  className="dropdown-menu"> 
+                    <div className="nav_container">
+                        <div className="dropdown-menu">
                             <ul>
                                 <li>
-                                    <a href="/" className="dropdown-item close_btn">
+                                    <Link to="/" className="dropdown-item close_btn">
                                         <FontAwesomeIcon icon={faTimes} />
-                                    </a>
+                                    </Link>
                                 </li>
-                                
+
                                 {/* Guests */}
                                 <li>
                                     <FontAwesomeIcon icon={faConciergeBell} />
-                                    <a className="dropdown-item" href="/">Our meal kits</a>
-                                </li>    
+                                    <Link className="dropdown-item" to="/">Our meal kits</Link>
+                                </li>
 
                                 <li>
                                     <FontAwesomeIcon icon={faBowlFood} />
-                                    <a className="dropdown-item" href="/">Create Recipe</a>
-                                </li>                                     
+                                    <Link className="dropdown-item" to="/recipeCreate">Create Recipe</Link>
+                                </li>
                             </ul>
                         </div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="header_btn_container">
+                <div className="header_btn_container">
 
-                {/* Guests */}
-                <a href="/" className="btn btn_login">
-                    <p>Log in</p>
-                    <FontAwesomeIcon icon={faArrowRightToBracket} />
-                </a>
+                    {/* Guests */}
+                    <Link to="/login" className="btn btn_login">
+                        <p>Log in</p>
+                        <FontAwesomeIcon icon={faArrowRightToBracket} />
+                    </Link>
 
-                <a href="/" className="btn btn_login">
-                    <p>Register</p>
-                    <FontAwesomeIcon icon={faUserPlus} />
+                    <Link to="/register" className="btn btn_login">
+                        <p>Register</p>
+                        <FontAwesomeIcon icon={faUserPlus} />
 
-                </a>
+                    </Link>
 
-                {/* User */}
-                {/* <a href="/" className="btn btn_login">
+                    {/* User */}
+                    {/* <Link to="/" className="btn btn_login">
                     <p>Profile</p>
                     <FontAwesomeIcon icon={faUser} />
-                </a>
+                </Link>
 
-                <a href="/" className="btn btn_login">
+                <Link to="/" className="btn btn_login">
                     <p>Log Out</p>
                     <FontAwesomeIcon icon={faArrowRightFromBracket} />
 
-                </a> */}
+                </Link> */}
 
-                
+
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
     )
 }
