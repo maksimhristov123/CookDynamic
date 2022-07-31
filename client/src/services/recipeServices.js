@@ -14,8 +14,6 @@ export const getOne = async (recipeId) => {
     const response = await fetch(`${baseUrl}/${recipeId}`);
     const result = await response.json();
 
-    console.log(result);
-
     return result;
 }
 

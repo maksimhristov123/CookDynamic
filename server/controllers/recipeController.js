@@ -8,10 +8,9 @@ const recipesGetAll =  async (req, res) => {
 }
 
 const recipesGetOne =  async (req, res) => {
-    const recipeId = req.params.recipeId;
+    const recipesId = req.params.recipeId;
 
-    const searchedRecipe = await Recipe.find({_id:recipeId});
-    // console.log(searchedRecipe);
+    const searchedRecipe = await Recipe.find({_id:recipesId});
     return res.status(200).json(searchedRecipe);
 }
 

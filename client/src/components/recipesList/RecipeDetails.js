@@ -7,68 +7,64 @@ import { useParams } from "react-router-dom";
 
 export const RecipeDetails = () => {
 
-    const [recipe, setRecipe] = useState([]);
+    const [recipe, setRecipe] = useState([{}]);
     const { recipeId } = useParams();
+
+    console.log(recipeId);
 
     useEffect(() => {
         recipeServices.getOne(recipeId)
             .then(recipe => setRecipe(recipe));
     }, [recipeId])
 
-    console.log(recipe);
 
     return (
         <main className="create-recipe-page">
             <Intro
                 mobileIntroImage={recipe[0].recipeImage}
-                desktopIntroImage={recipe.recipeImage}
-                introHeading={recipe.recipeTitle}
+                desktopIntroImage={recipe[0].recipeImage}
+                introHeading={recipe[0].recipeTitle}
             />
 
             <section className="details-recipe-section">
                 <div className="inner_section">
 
-                    <SectionHeading
-                        heading={"Details YOUR recipe!"}
-                        heading_text={"It doesn’t matter what you’re in the mood for, you’ll find the perfect easy-to-cook meal that will leave you smiling."}
-                    />
+                    <SectionHeading heading={"Details YOUR recipe!"} heading_text={"It doesn’t matter what you’re in the mood for, you’ll find the perfect easy-to-cook meal that will leave you smiling."} />
 
                 </div>
                 <div className="inner_section">
 
-                    <div>
-                        <div className="card details">
+                    <div className="card details">
 
-                            <div className="card_img_container">
-                                <div className="recipe_time">
-                                    <img src="./uploads/pan.png" alt="" />
-                                    <p className="time"><span>{recipe[0].recipeImage}</span> mins</p>
-                                </div>
-
-                                <div className="recipe_category">
-                                    <p className="category">{recipe[0].recipeCategory}</p>
-                                </div>
-
-                                <img src={recipe[0].recipeImage} alt={recipe[0].recipeTitle} />
+                        <div className="card_img_container">
+                            <div className="recipe_time">
+                                <img src="./uploads/pan.png" alt="" />
+                                <p className="time"><span>{recipe[0].recipe}</span> mins</p>
                             </div>
 
-                            <div className="card_content_container">
-                                <h3 className="card_title">{recipe[0].recipeTitle}</h3>
-                                <p>
-                                    {recipe[0].recipeDescription}
-                                </p>
+                            <div className="recipe_category">
+                                <p className="category">{recipe[0].recipeCategory}</p>
+                            </div>
 
-                                <div className='btn_container'>
+                            <img src={recipe[0].recipeImage} alt={recipe[0].recipeTitle} />
+                        </div>
 
-                                    <button className="add_to_card text_blue">
-                                        Edit
-                                    </button>
+                        <div className="card_content_container">
+                            <h3 className="card_title">{recipe[0].recipeTitle}</h3>
+                            <p>
+                                {recipe[0].recipeDescription}
+                            </p>
 
-                                    <button className="add_to_card text_blue">
-                                        Delete
-                                    </button>
+                            <div className='btn_container'>
 
-                                </div>
+                                <button className="add_to_card text_blue">
+                                    Edit
+                                </button>
+
+                                <button className="add_to_card text_blue">
+                                    Delete
+                                </button>
+
                             </div>
                         </div>
                     </div>
@@ -76,5 +72,6 @@ export const RecipeDetails = () => {
                 </div>
             </section>
         </main>
+
     )
 }
