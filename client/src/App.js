@@ -8,7 +8,7 @@ import { RecipeList } from './components/recipesList/RecipeList';
 import { Register } from './components/userSpace/Register';
 import { Login } from './components/userSpace/Login';
 import { RecipeCreate } from './components/recipesList/RecipeCreate';
-import { RecipeEdit } from './components/recipesList/RecipeEdit';
+// import { RecipeEdit } from './components/recipesList/RecipeEdit';
 import { RecipeDetails } from './components/recipesList/RecipeDetails';
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
 
                 {/* Recipes */}
                 <Route path="/create" element={<RecipeCreate />} />
+                <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
 
                 {/* Users */}
                 <Route path="/login" element={<Login />} />

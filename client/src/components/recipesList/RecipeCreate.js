@@ -143,7 +143,7 @@ export const RecipeCreate = () => {
                             author={'Dragan'}
                             recipeImage={values.recipeImage || './uploads/meal2.png'}
                             cookTime={Number(values.cookTime) || 20}
-                            category={values.category || ['best_seller', 'item', 'pascaterian']}
+                            category={values.category || ['best-seller']}
                             recipeTitle={values.recipeTitle || 'Lorem ipsum'}
                             resipeDescription={values.recipeDescription.substring(0, 100) || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 

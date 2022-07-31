@@ -7,6 +7,14 @@ const recipesGetAll =  async (req, res) => {
     return res.status(200).json(allRecipes);
 }
 
+const recipesGetOne =  async (req, res) => {
+    const recipeId = req.params.recipeId;
+
+    const searchedRecipe = await Recipe.find({_id:recipeId});
+    // console.log(searchedRecipe);
+    return res.status(200).json(searchedRecipe);
+}
+
 
 // Create Recipes
 const recipeCreate = async (req, res) => {
@@ -21,5 +29,6 @@ const recipeCreate = async (req, res) => {
 
 module.exports = {
     recipesGetAll,
+    recipesGetOne,
     recipeCreate
 }

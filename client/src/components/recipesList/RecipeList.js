@@ -18,8 +18,6 @@ export const RecipeList = () => {
             .then(recipes => setRecipes(recipes));
     }, [])
 
-    console.log(recipes);
-
     return (
         <main className="choose_recipes_page">
 
@@ -39,7 +37,7 @@ export const RecipeList = () => {
                 <div className="inner_section">
                     <div className="recipes_menu_container">
 
-                        {recipes.map((recipe) => <RecipeItem key={recipe._id} recipeImage={recipe.recipeImage} cookTime={recipe.recipeTime} category={recipe.recipeCategories} recipeTitle={recipe.recipeTitle} resipeDescription={recipe.recipeDescription} /> )}
+                        {recipes.map((recipe) => <RecipeItem key={recipe._id} recipeId={recipe._id} recipeImage={recipe.recipeImage} cookTime={recipe.recipeTime} category={recipe.recipeCategories} recipeTitle={recipe.recipeTitle} resipeDescription={recipe.recipeDescription} /> )}
 
                     </div>
                 </div>

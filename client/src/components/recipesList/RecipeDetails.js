@@ -1,13 +1,28 @@
+import { useEffect, useState } from "react";
+
 import { Intro } from "../base/Intro";
 import { SectionHeading } from "../base/SectionHeading";
+import * as recipeServices from '../../services/recipeServices';
+import { useParams } from "react-router-dom";
 
 export const RecipeDetails = () => {
+
+    const [recipe, setRecipe] = useState([]);
+    const { recipeId } = useParams();
+
+    useEffect(() => {
+        recipeServices.getOne(recipeId)
+            .then(recipe => setRecipe(recipe));
+    }, [recipeId])
+
+    console.log(recipe);
+
     return (
         <main className="create-recipe-page">
             <Intro
-                mobileIntroImage={'./uploads/choose_recipe_desktop.png'}
-                desktopIntroImage={'./uploads/choose_recipe_desktop.png'}
-                introHeading={"Current recipe"}
+                mobileIntroImage={recipe[0].recipeImage}
+                desktopIntroImage={recipe.recipeImage}
+                introHeading={recipe.recipeTitle}
             />
 
             <section className="details-recipe-section">
@@ -22,41 +37,40 @@ export const RecipeDetails = () => {
                 <div className="inner_section">
 
                     <div>
-                        <a href="/" className="card">
+                        <div className="card details">
 
                             <div className="card_img_container">
                                 <div className="recipe_time">
                                     <img src="./uploads/pan.png" alt="" />
-                                    <p className="time"><span>20</span> mins</p>
+                                    <p className="time"><span>{recipe[0].recipeImage}</span> mins</p>
                                 </div>
 
                                 <div className="recipe_category">
-                                    <p className="category">vegan</p>
+                                    <p className="category">{recipe[0].recipeCategory}</p>
                                 </div>
 
-                                <img src="./uploads/top.png" alt="" />
+                                <img src={recipe[0].recipeImage} alt={recipe[0].recipeTitle} />
                             </div>
 
                             <div className="card_content_container">
-                                <h3 className="card_title">Korean rolls kimpab with soy sauce - Asian food</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <h3 className="card_title">{recipe[0].recipeTitle}</h3>
+                                <p>
+                                    {recipe[0].recipeDescription}
+                                </p>
 
                                 <div className='btn_container'>
 
-                                    <a href='/' className="add_to_card text_blue">
+                                    <button className="add_to_card text_blue">
                                         Edit
-                                    </a>
+                                    </button>
 
-                                    <a href='/' className="add_to_card text_blue">
+                                    <button className="add_to_card text_blue">
                                         Delete
-                                    </a>
+                                    </button>
 
-                                    <a href='/' className="add_to_card text_blue">
-                                        Add Recipe
-                                    </a>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                 </div>

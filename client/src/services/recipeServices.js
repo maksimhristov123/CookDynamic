@@ -7,9 +7,17 @@ export const getAll = async () => {
     const result = await response.json();
 
     return result;
-
 }
 
+export const getOne = async (recipeId) => {
+
+    const response = await fetch(`${baseUrl}/${recipeId}`);
+    const result = await response.json();
+
+    console.log(result);
+
+    return result;
+}
 
 export const create = async (recipeData) => {
 
