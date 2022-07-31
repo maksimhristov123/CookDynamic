@@ -2,9 +2,21 @@ import { Intro } from "../base/Intro"
 import { SectionHeading } from "../base/SectionHeading"
 
 export const Login = () => {
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const {
+            email,
+            password
+        } = Object.fromEntries(new FormData(e.target));
+
+        console.log(email + " " + password);
+    }
+
     return (
 
-        <main class="register_page">
+        <main className="register_page">
 
             <Intro
                 mobileIntroImage={'./uploads/delivery_hero.png'}
@@ -17,14 +29,15 @@ export const Login = () => {
                 <SectionHeading heading={"Login to your account!"} />
 
                 <div className="inner_section">
-                    <form id="register_form">
+
+                    <form id="register_form" onSubmit={onSubmit}>
                         <div className="form_item">
 
                             <input
-                                type="text"
-                                id="username"
-                                name="username"
-                                placeholder="Name"
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Email"
                                 required
                             />
 
@@ -34,7 +47,7 @@ export const Login = () => {
 
                             <input
                                 type="password"
-                                id="password"
+                                id="loginPassword"
                                 name="password"
                                 placeholder="Password"
                                 required

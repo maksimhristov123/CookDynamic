@@ -1,18 +1,19 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 import { Intro } from "../base/Intro";
 import { RecipeItem } from "./RecipeItem";
 import { SectionHeading } from "../base/SectionHeading";
 
+import * as recipeServices from '../../services/recipeServices';
+
 export const RecipeCreate = () => {
 
     const [values, setValues] = useState({
-        recipeTitle:'',
-        recipeDescription:'',
+        recipeTitle: '',
+        recipeDescription: '',
         recipeCategories: '',
-        recipeTime: 0,
-        recipeImage: '',
-        recipeAuthor: 'admin'
+        recipeTime: '',
+        recipeImage: ''
     })
 
     const chageHendler = (e) => {
@@ -24,10 +25,16 @@ export const RecipeCreate = () => {
 
     }
 
-    function submitHendler(e){
+    function submitHendler(e) {
         e.preventDefault();
-        console.log(values);
-        // let values = Object.fromEntries(new FormData(e.target));
+
+        const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage } = values;
+        const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage };
+
+        // console.log({...insertedData});
+        
+        return recipeServices.create(insertedData);
+
     }
 
 
@@ -51,96 +58,96 @@ export const RecipeCreate = () => {
                 <div className="inner_section">
 
                     <div className="col-half">
-                            <form id="recipe_create_form" onSubmit={submitHendler}>
-                                <div className="form_item">
+                        <form id="recipe_create_form" onSubmit={submitHendler}>
+                            <div className="form_item">
 
-                                    <input
-                                        type="text"
-                                        id="recipeTitle"
-                                        name="recipeTitle"
-                                        value={values.recipeTitle}
-                                        onChange={chageHendler}
-                                        placeholder="Recipe Title"
-                                        required
-                                    />
+                                <input
+                                    type="text"
+                                    id="recipeTitle"
+                                    name="recipeTitle"
+                                    value={values.recipeTitle}
+                                    onChange={chageHendler}
+                                    placeholder="Recipe Title"
+                                    required
+                                />
 
-                                </div>
+                            </div>
 
-                                <div className="form_item">
+                            <div className="form_item">
 
-                                    <input
-                                        type="text"
-                                        id="recipeDescription"
-                                        name="recipeDescription"
-                                        value={values.recipeDescription}
-                                        onChange={chageHendler}
-                                        placeholder="Recipe Description"
-                                        required
-                                    />
+                                <input
+                                    type="text"
+                                    id="recipeDescription"
+                                    name="recipeDescription"
+                                    value={values.recipeDescription}
+                                    onChange={chageHendler}
+                                    placeholder="Recipe Description"
+                                    required
+                                />
 
-                                </div>
+                            </div>
 
-                                <div className="form_item">
+                            <div className="form_item">
 
-                                    <input
-                                        type="text"
-                                        id="recipeCategories"
-                                        name="recipeCategories"
-                                        value={values.recipeCategories}
-                                        onChange={chageHendler}
-                                        placeholder="Recipe Category"
-                                        required
-                                    />
+                                <input
+                                    type="text"
+                                    id="recipeCategories"
+                                    name="recipeCategories"
+                                    value={values.recipeCategories}
+                                    onChange={chageHendler}
+                                    placeholder="Recipe Category"
+                                    required
+                                />
 
-                                </div>
+                            </div>
 
-                                <div className="form_item">
+                            <div className="form_item">
 
-                                    <input
-                                        type="number"
-                                        id="recipeTime"
-                                        name="recipeTime"
-                                        value={values.recipeTime}
-                                        onChange={chageHendler}
-                                        placeholder="Recipe Cook Time"
-                                        required
-                                    />
+                                <input
+                                    type="number"
+                                    id="recipeTime"
+                                    name="recipeTime"
+                                    value={values.recipeTime}
+                                    onChange={chageHendler}
+                                    placeholder="Recipe Cook Time"
+                                    required
+                                />
 
-                                </div>
+                            </div>
 
-                                <div className="form_item">
+                            <div className="form_item">
 
-                                    <input
-                                        type="text"
-                                        id="recipeImage"
-                                        name="recipeImage"
-                                        value={values.recipeImage}
-                                        onChange={chageHendler}
-                                        placeholder="Recipe Image path"
-                                    />
+                                <input
+                                    type="text"
+                                    id="recipeImage"
+                                    name="recipeImage"
+                                    value={values.recipeImage}
+                                    onChange={chageHendler}
+                                    placeholder="Recipe Image path"
+                                />
 
-                                </div>
+                            </div>
 
-                                <div className="form_item">
+                            <div className="form_item">
 
-                                    <input className="btn btn_blue btn_submit_register" type="submit" value="Create" />
+                                <input className="btn btn_blue btn_submit_register" type="submit" value="Create" />
 
-                                </div>
+                            </div>
 
-                            </form>
+                        </form>
 
                     </div>
 
                     <div className="col-half">
-                            <RecipeItem
-                                author={'Dragan'}
-                                recipeImage={ values.recipeImage || './uploads/meal2.png'}
-                                cookTime={Number(values.cookTime) || 20}
-                                category={values.category || ['best_seller', 'item', 'pascaterian']}
-                                recipeTitle={values.recipeTitle || 'Lorem ipsum'}
-                                resipeDescription={values.recipeDescription.substring(0,100) ||'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
+                        <RecipeItem
+                            author={'Dragan'}
+                            recipeImage={values.recipeImage || './uploads/meal2.png'}
+                            cookTime={Number(values.cookTime) || 20}
+                            category={values.category || ['best_seller', 'item', 'pascaterian']}
+                            recipeTitle={values.recipeTitle || 'Lorem ipsum'}
+                            resipeDescription={values.recipeDescription.substring(0, 100) || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                            />
+                        />
 
                     </div>
                 </div>

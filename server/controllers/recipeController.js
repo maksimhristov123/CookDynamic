@@ -1,9 +1,25 @@
-const router = require('express').Router();
+const {Recipe} = require('../models/Recipe');
 
-const recipeService = require('../services/recipeServices');
+//Get All Recipes from DB
 
-router.post('/', (req,res)=> {
-    recipeService.create({recipeTitle, recipeDescription,  recipeCategories, recipeTime, recipeImage})
-})
+const recipesGetAll =  async (req, res) => {
+    const allRecipes = await Recipe.find();
+    return res.status(200).json(allRecipes);
+}
 
-module.exports = router;
+
+// Create Recipes
+const recipeCreate = async (req, res) => {
+
+    const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage } = req.body;
+    const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage };
+
+    const insertedRecipe = await Recipe.create({...insertedData});
+    return res.status(201).json(insertedRecipe);
+
+}
+
+module.exports = {
+    recipesGetAll,
+    recipeCreate
+}

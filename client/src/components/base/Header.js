@@ -46,7 +46,7 @@ export const Header = () => {
 
                                 <li>
                                     <FontAwesomeIcon icon={faBowlFood} />
-                                    <Link className="dropdown-item" to="/recipeCreate">Create Recipe</Link>
+                                    <Link className="dropdown-item" to="/create">Create Recipe</Link>
                                 </li>
                             </ul>
                         </div>
