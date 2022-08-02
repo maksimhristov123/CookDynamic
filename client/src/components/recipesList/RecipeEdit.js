@@ -1,16 +1,30 @@
+import { useEffect, useState } from "react";
+
 import { Intro } from "../base/Intro";
 import { RecipeItem } from "./RecipeItem";
 import { SectionHeading } from "../base/SectionHeading";
+import * as recipeServices from '../../services/recipeServices';
+import { useParams } from "react-router-dom";
 
 export const RecipeEdit = () => {
+
+    
+    const [recipe, setRecipe] = useState([{}]);
+    const { recipeId } = useParams();
+
+    useEffect(() => {
+        recipeServices.getOne(recipeId)
+            .then(recipe => setRecipe(recipe));
+    }, [recipeId])
+
     return (
         <main className="create-recipe-page">
             <Intro
-                mobileIntroImage={'./uploads/choose_recipe_desktop.png'}
-                desktopIntroImage={'./uploads/choose_recipe_desktop.png'}
-                introHeading={"Edit recipe"}
+                mobileIntroImage={recipe[0].recipeImage}
+                desktopIntroImage={recipe[0].recipeImage}
+                introHeading={recipe[0].recipeTitle}
             />
-
+{/* 
             <section className="create-recipe-section">
                 <div className="inner_section">
 
@@ -112,7 +126,7 @@ export const RecipeEdit = () => {
 
                     </div>
                 </div>
-            </section>
+            </section> */}
         </main>
     )
 }

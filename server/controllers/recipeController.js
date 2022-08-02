@@ -26,8 +26,15 @@ const recipeCreate = async (req, res) => {
 
 }
 
+const recipeDelete = async (req, res) => {
+    const reciperId = req.params.recipeId;
+    await Recipe.deleteOne({_id:reciperId});
+    return reciperId;
+}
+
 module.exports = {
     recipesGetAll,
     recipesGetOne,
-    recipeCreate
+    recipeCreate,
+    recipeDelete
 }

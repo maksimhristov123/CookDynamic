@@ -5,5 +5,7 @@ router.get('', recipeController.recipesGetAll);
 router.post('', recipeController.recipeCreate);
 router.get('/:recipeId', recipeController.recipesGetOne);
 
+router.get('/:recipeId/delete', recipeController.recipeDelete);
+
 
 module.exports = router;

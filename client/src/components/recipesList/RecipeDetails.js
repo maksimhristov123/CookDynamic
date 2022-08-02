@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 import { Intro } from "../base/Intro";
 import { SectionHeading } from "../base/SectionHeading";
@@ -9,8 +10,6 @@ export const RecipeDetails = () => {
 
     const [recipe, setRecipe] = useState([{}]);
     const { recipeId } = useParams();
-
-    console.log(recipeId);
 
     useEffect(() => {
         recipeServices.getOne(recipeId)
@@ -57,13 +56,13 @@ export const RecipeDetails = () => {
 
                             <div className='btn_container'>
 
-                                <button className="add_to_card text_blue">
+                                <Link to={`/recipes/${recipeId}/edit`} className="btn add_to_card">
                                     Edit
-                                </button>
+                                </Link>
 
-                                <button className="add_to_card text_blue">
+                                <Link to={`/recipes/${recipeId}/delete`} className="btn add_to_card">
                                     Delete
-                                </button>
+                                </Link>
 
                             </div>
                         </div>
