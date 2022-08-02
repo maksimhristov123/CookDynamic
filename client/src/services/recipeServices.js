@@ -1,6 +1,8 @@
 
 const baseUrl = 'http://localhost:3008/api/recipes';
 
+
+// Get all recipes (Catalog)
 export const getAll = async () => {
 
     const response = await fetch(baseUrl);
@@ -9,6 +11,7 @@ export const getAll = async () => {
     return result;
 }
 
+// Get one recipe (Details)
 export const getOne = async (recipeId) => {
 
     const response = await fetch(`${baseUrl}/${recipeId}`);
@@ -17,6 +20,7 @@ export const getOne = async (recipeId) => {
     return result;
 }
 
+// Create
 export const create = async (recipeData) => {
 
     const response = await fetch(baseUrl, {
@@ -38,3 +42,11 @@ export const create = async (recipeData) => {
          console.error( 'Unable to create recipe');
     }
 }
+
+// Delete
+export const deleteOne = async (recipeId) => {
+    await fetch(`${baseUrl}/${recipeId}/delete`);
+    console.log('TRy to delete')
+    return null;
+}
+
