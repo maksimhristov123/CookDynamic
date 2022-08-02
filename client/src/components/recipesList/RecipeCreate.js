@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Intro } from "../base/Intro";
 import { RecipeItem } from "./RecipeItem";
@@ -7,6 +8,8 @@ import { SectionHeading } from "../base/SectionHeading";
 import * as recipeServices from '../../services/recipeServices';
 
 export const RecipeCreate = () => {
+
+    const navigateTo = useNavigate();
 
     const [values, setValues] = useState({
         recipeTitle: '',
@@ -33,7 +36,10 @@ export const RecipeCreate = () => {
 
         // console.log({...insertedData});
         
-        return recipeServices.create(insertedData);
+        return recipeServices.create(insertedData)
+                .then(
+                    navigateTo('/')
+                );
 
     }
 
