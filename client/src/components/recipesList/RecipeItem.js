@@ -5,7 +5,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 export const RecipeItem = (reciper) => {
 
-    let recipeDescriptionSlized = reciper.resipeDescription.slice(0, 100);
+    // let recipeDescriptionSlized = reciper.resipeDescription.slice(0, 100);
 
     return (
         <div className="item best_seller">
@@ -26,7 +26,7 @@ export const RecipeItem = (reciper) => {
                     <h3 className="card_title">{reciper.recipeTitle}</h3>
 
                     <p>
-                        {recipeDescriptionSlized}
+                        {reciper.resipeDescription}
                     </p>
 
                     <div className='btn_container'>

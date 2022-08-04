@@ -6,6 +6,7 @@ router.post('', recipeController.recipeCreate);
 router.get('/:recipeId', recipeController.recipesGetOne);
 
 router.get('/:recipeId/delete', recipeController.recipeDelete);
+router.post('/:recipeId/edit', recipeController.recipeEdit);
 
 
 module.exports = router;

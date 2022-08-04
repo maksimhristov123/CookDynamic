@@ -1,21 +1,40 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Intro } from "../base/Intro";
 import { RecipeItem } from "./RecipeItem";
 import { SectionHeading } from "../base/SectionHeading";
+
 import * as recipeServices from '../../services/recipeServices';
 import { useParams } from "react-router-dom";
 
 export const RecipeEdit = () => {
 
-    
-    const [recipe, setRecipe] = useState([{}]);
     const { recipeId } = useParams();
+    const navigateTo = useNavigate();
+
+    const [recipe, setRecipe] = useState([{}]);
 
     useEffect(() => {
         recipeServices.getOne(recipeId)
             .then(recipe => setRecipe(recipe));
     }, [recipeId])
+
+    
+    function submitHendler(e) {
+        e.preventDefault();
+
+         const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage } = Object.fromEntries(new FormData(e.target));
+         const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage };
+
+         console.log({...insertedData});
+        
+        return recipeServices.edit(recipeId,insertedData)
+                .then(
+                    navigateTo('/')
+                );
+
+    }
 
     return (
         <main className="create-recipe-page">
@@ -24,7 +43,7 @@ export const RecipeEdit = () => {
                 desktopIntroImage={recipe[0].recipeImage}
                 introHeading={recipe[0].recipeTitle}
             />
-{/* 
+
             <section className="create-recipe-section">
                 <div className="inner_section">
 
@@ -36,97 +55,98 @@ export const RecipeEdit = () => {
                 </div>
                 <div className="inner_section">
 
-                    <div className="col-half">
-                            <form id="recipe_create_form">
-                                <div className="form_item">
+                <div className="col-half">
+                        <form id="recipe_create_form" onSubmit={submitHendler}>
+                            <div className="form_item">
 
-                                    <input
-                                        type="text"
-                                        id="username"
-                                        name="username"
-                                        placeholder="Name"
-                                        required
-                                    />
+                                <input
+                                    type="text"
+                                    id="recipeTitle"
+                                    name="recipeTitle"
+                                    defaultValue={recipe[0].recipeTitle}
+                                    placeholder={recipe[0].recipeTitle}
+                                    required
+                                />
 
-                                </div>
+                            </div>
 
-                                <div className="form_item">
+                            <div className="form_item">
 
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        placeholder="Email"
-                                        required
-                                    />
+                                <input
+                                    type="text"
+                                    id="recipeDescription"
+                                    name="recipeDescription"
+                                    defaultValue={recipe[0].recipeDescription}
+                                    placeholder={recipe[0].recipeDescription}
+                                    required
+                                />
 
-                                </div>
+                            </div>
 
-                                <div className="form_item">
+                            <div className="form_item">
 
-                                    <input
-                                        type="password"
-                                        id="password"
-                                        name="password"
-                                        placeholder="Password"
-                                        required
-                                    />
+                                <input
+                                    type="text"
+                                    id="recipeCategories"
+                                    name="recipeCategories"
+                                    defaultValue={recipe[0].recipeCategories}
+                                    placeholder={recipe[0].recipeCategories}
+                                    required
+                                />
 
-                                </div>
+                            </div>
 
-                                <div className="form_item">
+                            <div className="form_item">
 
-                                    <input
-                                        type="password"
-                                        id="repeatPassword"
-                                        name="repeatPassword"
-                                        placeholder="Repeat Password"
-                                        required
-                                    />
+                                <input
+                                    type="number"
+                                    id="recipeTime"
+                                    name="recipeTime"
+                                    defaultValue={recipe[0].recipeTime}
+                                    placeholder={recipe[0].recipeTime}
+                                    required
+                                />
 
-                                </div>
+                            </div>
 
-                                <div className="form_item">
+                            <div className="form_item">
 
-                                    <input
-                                        type="text"
-                                        id="profileImageUrl"
-                                        name="profileImageUrl"
-                                        placeholder="Profile Image path"
-                                    />
+                                <input
+                                    type="text"
+                                    id="recipeImage"
+                                    name="recipeImage"
+                                    defaultValue={recipe[0].recipeImage}
+                                    placeholder={recipe[0].recipeImage}
+                                />
 
-                                </div>
+                            </div>
 
-                                <div className="form_item">
+                            <div className="form_item">
 
-                                    <input className="btn btn_blue btn_submit_register" type="submit" value="Submit" />
+                                <input className="btn btn_blue btn_submit_register" type="submit" value="Edit" />
 
-                                </div>
+                            </div>
 
-                                <p>
-                                    You already have an account?
-                                    <a href="/">
-                                        <span>Login</span>
-                                    </a>
-                                </p>
-                            </form>
+                        </form>
 
                     </div>
 
-                    <div className="col-half">
-                            <RecipeItem
-                                author={'Dragan'}
-                                recipeImage={'./uploads/meal2.png'}
-                                cookTime={20}
-                                category={['best_seller', 'item', 'pascaterian']}
-                                recipeTitle={'Thai traditional red curry soup with shrimps prawns and coconut milk'}
-                                resipeDescription={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 
-                            />
+                    <div className="col-half">
+                    <RecipeItem
+                            author={'Dragan'}
+                            recipeImage={recipe[0].recipeImage}
+                            cookTime={recipe[0].cookTime}
+                            category={recipe[0].recipeCategories}
+                            recipeTitle={recipe[0].recipeTitle}
+                            resipeDescription={recipe[0].recipeDescription}
+
+                        />
+
 
                     </div>
                 </div>
-            </section> */}
+            </section>
         </main>
     )
 }

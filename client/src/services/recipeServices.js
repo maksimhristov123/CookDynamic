@@ -46,7 +46,27 @@ export const create = async (recipeData) => {
 // Delete
 export const deleteOne = async (recipeId) => {
     await fetch(`${baseUrl}/${recipeId}/delete`);
-    console.log('TRy to delete')
     return null;
 }
+
+export const edit = async (recipeId, data) => {
+    const response = await fetch(`${baseUrl}/${recipeId}/edit`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body:JSON.stringify(data)
+    })
+
+    if(response.ok){
+
+        const result = await response.json();
+        return result.recipe;
+
+    }else {
+
+         console.error( 'Unable to edit recipe');
+    }
+}
+
 

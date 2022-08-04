@@ -1,10 +1,50 @@
-import { Intro } from "../base/Intro"
-import { SectionHeading } from "../base/SectionHeading"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { Intro } from "../base/Intro";
+import { SectionHeading } from "../base/SectionHeading";
+
+import * as userServices from '../../services/userServices';
 
 export const Register = () => {
+
+    const navigateTo = useNavigate();
+
+    const [values, setValues] = useState({
+        username: "" , 
+        email: "", 
+        password : "", 
+        repeatPassword: "",
+        profileImageUrl: "" 
+    })
+
+    const chageHendler = (e) => {
+        setValues(s => ({
+            ...s,
+            [e.target.name]: e.target.value
+        }))
+    }
+
+    function submitHendler(e){
+        e.preventDefault();
+
+        const {username , email, password ,repeatPassword, profileImageUrl } = values;
+
+        if(password !== repeatPassword){
+            console.log('Password not match!');
+        }
+
+        const insertedData = {username , email, password , profileImageUrl }
+
+        return userServices.register(insertedData)
+                    .then(
+                        navigateTo('/')
+                    );
+    }
+
     return (
 
-        <main class="register_page">
+        <main className="register_page">
 
             <Intro
                 mobileIntroImage={'./uploads/choose_recipe_desktop.png'}
@@ -17,13 +57,15 @@ export const Register = () => {
                 <SectionHeading heading={"Register for better experience!"} />
 
                 <div className="inner_section">
-                    <form id="register_form">
+                    <form id="register_form" onSubmit={submitHendler}>
                         <div className="form_item">
 
                             <input
                                 type="text"
                                 id="username"
                                 name="username"
+                                value={values.username}
+                                onChange={chageHendler}
                                 placeholder="Name"
                                 required
                             />
@@ -36,6 +78,8 @@ export const Register = () => {
                                 type="email"
                                 id="email"
                                 name="email"
+                                value={values.email}
+                                onChange={chageHendler}
                                 placeholder="Email"
                                 required
                             />
@@ -48,6 +92,8 @@ export const Register = () => {
                                 type="password"
                                 id="password"
                                 name="password"
+                                value={values.password}
+                                onChange={chageHendler}
                                 placeholder="Password"
                                 required
                             />
@@ -60,6 +106,8 @@ export const Register = () => {
                                 type="password"
                                 id="repeatPassword"
                                 name="repeatPassword"
+                                value={values.repeatPassword}
+                                onChange={chageHendler}
                                 placeholder="Repeat Password"
                                 required
                             />
@@ -72,6 +120,8 @@ export const Register = () => {
                                 type="text"
                                 id="profileImageUrl"
                                 name="profileImageUrl"
+                                value={values.profileImageUrl}
+                                onChange={chageHendler}
                                 placeholder="Profile Image path"
                             />
 
