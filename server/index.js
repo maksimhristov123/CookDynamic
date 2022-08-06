@@ -1,26 +1,27 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
+const { auth } = require( './middlewares/userMiddleware');
 
 // Variables
 const PORT = 3008;
 const DB_QUERY = 'mongodb://localhost:27017/cook-fresh';
 
-const corsOptions = {
-    origin: "http://localhost:3000"
+ const corsOptions = {
+     origin: "http://localhost:3000"
 };
 
 // Api config
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 app.use(cors(corsOptions));
-
 app.use(express.json());
+
+app.use(cookieParser());
+app.use(auth);
+
 
 const start = async () => {
     try {

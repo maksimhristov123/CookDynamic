@@ -1,38 +1,50 @@
-const {User} = require('../models/User');
+const { User } = require('../models/User');
 
+const jwt = require('jsonwebtoken');
+
+const SECRET_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';
 
 // Register
-const register = async(req, res) => {
-    const {username , email, password, repeatPassword , profileImageUrl } = req.body;
-    const registrationProfile = {username , email, password , profileImageUrl };
+const register = async (req, res) => {
+    const { username, email, password, repeatPassword, profileImageUrl } = req.body;
+    const registrationProfile = { username, email, password, profileImageUrl };
 
-    const registeredUser = await User.create({...registrationProfile});
-    return res.status(201).json(registeredUser);
+    await User.create({ ...registrationProfile })
+        .then(user => {
+
+            return res.status(201).json(user);
+        })
+        .catch(error => {
+            console.log("Feild oto register: " + error);
+        });
+
+
 }
 
 // Login
-const login = async(req, res) => {
-    const {email, password} = req.body;
+const login = async (req, res) => {
+    const { email, password } = req.body;
 
-    await User.findOne({email:email})
+    await User.findOne({ email: email, password: password })
         .then(user => {
-            if(user.password === password){
-                
-                return res.status(201).json(user);
-            }else{
-                return res.json({
-                    message: 'Invalid user or password!'
-                })
-            }
+
+            const token = jwt.sign({...user}, SECRET_TOKEN);
+
+            console.log(token)
+            res.cookie('user', token, { httpOnly: true });
+
+            return res.status(201).json(user);
+
         })
         .catch(error => {
-            console.log("Faild to fetch: " + error)
+            console.log("Faild to login: " + error)
         });
-    
-    
+
+
 }
 
 //Logout
+
 
 
 module.exports = {
