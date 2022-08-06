@@ -1,7 +1,12 @@
-import { Intro } from "../base/Intro"
-import { SectionHeading } from "../base/SectionHeading"
+import { useNavigate } from "react-router-dom";
+
+import { Intro } from "../base/Intro";
+import { SectionHeading } from "../base/SectionHeading";
+import * as userServices from "../../services/userServices";
 
 export const Login = () => {
+
+    const navigateTo = useNavigate();
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -11,7 +16,16 @@ export const Login = () => {
             password
         } = Object.fromEntries(new FormData(e.target));
 
-        console.log(email + " " + password);
+        // console.log(email + " " + password);
+
+        return userServices.login(email, password)
+            .then(
+                navigateTo('/')
+            )
+            .catch( error => {
+                console.log(error)
+            });
+
     }
 
     return (

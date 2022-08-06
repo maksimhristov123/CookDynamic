@@ -13,10 +13,23 @@ const register = async(req, res) => {
 // Login
 const login = async(req, res) => {
     const {email, password} = req.body;
-    const loginProfile = {email, password }
 
-    const logedUser = await User.find({...loginProfile})
-    return res.status(201).json(logedUser);
+    await User.findOne({email:email})
+        .then(user => {
+            if(user.password === password){
+                
+                return res.status(201).json(user);
+            }else{
+                return res.json({
+                    message: 'Invalid user or password!'
+                })
+            }
+        })
+        .catch(error => {
+            console.log("Faild to fetch: " + error)
+        });
+    
+    
 }
 
 //Logout
