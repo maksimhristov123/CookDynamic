@@ -26,7 +26,7 @@ const recipeCreate = async (req, res) => {
 }
 
 
-// Dalete Recipe
+// Delete Recipe
 const recipeDelete = async (req, res) => {
     const reciperId = req.params.recipeId;
     await Recipe.deleteOne({_id:reciperId});
