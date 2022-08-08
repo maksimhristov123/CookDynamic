@@ -9,7 +9,7 @@ const { auth } = require( './middlewares/userMiddleware');
 const PORT = 3008;
 const DB_QUERY = 'mongodb://localhost:27017/cook-fresh';
 
- const corsOptions = {
+const corsOptions = {
      origin: "http://localhost:3000"
 };
 
