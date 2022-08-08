@@ -1,44 +1,50 @@
 
 const baseUrl = 'http://localhost:3008/api/users';
 
-export const register = async (userData) =>{
-    const response = await fetch(`${baseUrl}/register`,{
+export const register = async (userData) => {
+    const response = await fetch(`${baseUrl}/register`, {
         method: 'POST',
         headers: {
-            'content-type' : 'application/json'
+            'content-type': 'application/json'
         },
         body: JSON.stringify(userData)
     })
 
-    if(response.ok){
+    if (response.ok) {
 
         const result = await response.json();
-        console.log('Succesfuly registered!')
-        return result.user;
+        return result;
 
-    }else {
+    } else {
 
-         console.error( 'Unable to register user');
+        console.error('Unable to register user');
     }
 }
 
-export const login = async(email, password) => {
-    const response = await fetch(`${baseUrl}/login`,{
+export const login = async (email, password) => {
+    const response = await fetch(`${baseUrl}/login`, {
         method: 'POST',
         headers: {
-            'content-type' : 'application/json'
+            'content-type': 'application/json'
         },
-        body: JSON.stringify({email, password})
+        body: JSON.stringify({ email, password })
     })
 
-    if(response.ok){
+    if (response.ok) {
 
         const result = await response.json();
-        console.log(result)
         return result;
 
-    }else {
+    } else {
 
-         console.error( 'Unable to login user');
+        console.error('Unable to login user');
+        
     }
+}
+
+export const logout = async () => {
+    const response = await fetch(`${baseUrl}/logout`)
+    localStorage.clear()
+
+    return response;
 }

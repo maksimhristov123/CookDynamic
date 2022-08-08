@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,7 +13,11 @@ import {
     faUserPlus
 } from '@fortawesome/free-solid-svg-icons';
 
+import { useUserContext } from '../../contexts/userContext';
+
 export const Header = () => {
+
+    const { user } = useUserContext();
 
     return (
         <header>
@@ -53,34 +58,34 @@ export const Header = () => {
                     </div>
                 </div>
 
-                <div className="header_btn_container">
+                {user.email
+                    ? <div className="header_btn_container">
+                        <Link to="/" className="btn btn_login">
+                            <p>Profile</p>
+                            <FontAwesomeIcon icon={faUser} />
+                        </Link>
 
-                    {/* Guests */}
-                    <Link to="/login" className="btn btn_login">
-                        <p>Log in</p>
-                        <FontAwesomeIcon icon={faArrowRightToBracket} />
-                    </Link>
+                        <Link to="/logout" className="btn btn_login">
+                            <p>Log Out</p>
+                            <FontAwesomeIcon icon={faArrowRightFromBracket} />
 
-                    <Link to="/register" className="btn btn_login">
-                        <p>Register</p>
-                        <FontAwesomeIcon icon={faUserPlus} />
+                        </Link>
+                    </div>
+                    : <div className="header_btn_container">
+                        <Link to="/login" className="btn btn_login">
+                            <p>Log in</p>
+                            <FontAwesomeIcon icon={faArrowRightToBracket} />
+                        </Link>
 
-                    </Link>
+                        <Link to="/register" className="btn btn_login">
+                            <p>Register</p>
+                            <FontAwesomeIcon icon={faUserPlus} />
 
-                    {/* User */}
-                    {/* <Link to="/" className="btn btn_login">
-                    <p>Profile</p>
-                    <FontAwesomeIcon icon={faUser} />
-                </Link>
-
-                <Link to="/" className="btn btn_login">
-                    <p>Log Out</p>
-                    <FontAwesomeIcon icon={faArrowRightFromBracket} />
-
-                </Link> */}
+                        </Link>
+                    </div>
+                }
 
 
-                </div>
             </div>
         </header>
     )

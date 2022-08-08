@@ -1,11 +1,15 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Intro } from "../base/Intro";
 import { SectionHeading } from "../base/SectionHeading";
+
+import { UserContext } from '../../contexts/userContext'
 import * as userServices from "../../services/userServices";
 
 export const Login = () => {
 
+    const { userLogin } = useContext(UserContext);
     const navigateTo = useNavigate();
 
     const onSubmit = (e) => {
@@ -16,13 +20,12 @@ export const Login = () => {
             password
         } = Object.fromEntries(new FormData(e.target));
 
-        // console.log(email + " " + password);
-
         return userServices.login(email, password)
-            .then(
+            .then(data => {
+                userLogin(data)
                 navigateTo('/')
-            )
-            .catch( error => {
+            })
+            .catch(error => {
                 console.log(error)
             });
 

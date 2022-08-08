@@ -19,13 +19,14 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use(cookieParser());
-app.use(auth);
-
 
 const start = async () => {
     try {
+        app.use(express.urlencoded({extended:false}));
+        app.use(cookieParser());
+        app.use(auth);
         require('./routes/router')(app);
+     
 
         await mongoose.connect(DB_QUERY);
 

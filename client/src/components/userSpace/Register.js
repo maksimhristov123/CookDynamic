@@ -1,21 +1,23 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Intro } from "../base/Intro";
 import { SectionHeading } from "../base/SectionHeading";
 
+import {UserContext} from '../../contexts/userContext'
 import * as userServices from '../../services/userServices';
 
 export const Register = () => {
 
+    const { userLogin } = useContext(UserContext);
     const navigateTo = useNavigate();
 
     const [values, setValues] = useState({
-        username: "" , 
-        email: "", 
-        password : "", 
+        username: "",
+        email: "",
+        password: "",
         repeatPassword: "",
-        profileImageUrl: "" 
+        profileImageUrl: ""
     })
 
     const chageHendler = (e) => {
@@ -25,21 +27,22 @@ export const Register = () => {
         }))
     }
 
-    function submitHendler(e){
+    function submitHendler(e) {
         e.preventDefault();
 
-        const {username , email, password ,repeatPassword, profileImageUrl } = values;
+        const { username, email, password, repeatPassword, profileImageUrl } = values;
 
-        if(password !== repeatPassword){
+        if (password !== repeatPassword) {
             console.log('Password not match!');
         }
 
-        const insertedData = {username , email, password , profileImageUrl }
+        const insertedData = { username, email, password, profileImageUrl }
 
         return userServices.register(insertedData)
-                    .then(
-                        navigateTo('/')
-                    );
+            .then(data => {
+                userLogin(data)
+                navigateTo('/')
+            });
     }
 
     return (
