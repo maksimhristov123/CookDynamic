@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { Intro } from "../base/Intro";
 import { SectionHeading } from "../base/SectionHeading";
@@ -138,9 +138,9 @@ export const Register = () => {
 
                         <p>
                             You already have an account?
-                            <a href="/">
+                            <Link to="/login">
                                 <span>Login</span>
-                            </a>
+                            </Link>
                         </p>
                     </form>
                 </div>

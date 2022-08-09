@@ -5,7 +5,7 @@ const register = async (req, res) => {
     const { username, email, password, repeatPassword, profileImageUrl } = req.body;
     const registrationProfile = { username, email, password, profileImageUrl };
 
-    const user = await User.create({ ...registrationProfile })
+    const user = await User.create({ ...registrationProfile });
     return res.status(201).json(user);
 }
 
@@ -17,8 +17,6 @@ const login = async (req, res) => {
 
     return res.status(201).json(user);
 }
-
-
 
 module.exports = {
     register,

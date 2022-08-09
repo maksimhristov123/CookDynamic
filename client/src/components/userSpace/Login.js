@@ -1,16 +1,21 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link, Navigate } from "react-router-dom";
 
 import { Intro } from "../base/Intro";
 import { SectionHeading } from "../base/SectionHeading";
 
-import { UserContext } from '../../contexts/userContext'
 import * as userServices from "../../services/userServices";
+import {  UserContext, useUserContext } from "../../contexts/userContext";
 
 export const Login = () => {
 
     const { userLogin } = useContext(UserContext);
+    const {user} = useUserContext();
     const navigateTo = useNavigate();
+
+    if(user.email){
+        return <Navigate to="/" />
+    }
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -80,9 +85,9 @@ export const Login = () => {
 
                         <p>
                             You dont have an account?
-                            <a href="/">
+                            <Link to="/register">
                                 <span>Register</span>
-                            </a>
+                            </Link>
                         </p>
                     </form>
                 </div>

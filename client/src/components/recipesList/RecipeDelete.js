@@ -1,13 +1,14 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useParams  } from "react-router-dom";
 
 import * as recipeServices from '../../services/recipeServices';
-import { useParams } from "react-router-dom";
+import { useUserContext } from "../../contexts/userContext";
 
 export const RecipeDelete = () => {
 
     const { recipeId } = useParams();
     const navigateTo = useNavigate();
+
 
     useEffect(() => {
         recipeServices.deleteOne(recipeId)

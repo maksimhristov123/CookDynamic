@@ -38,8 +38,6 @@ export const RecipeCreate = () => {
 
         const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage, recipeAuthor } = values;
         const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage, recipeAuthor };
-
-        // console.log({...insertedData});
         
         return recipeServices.create(insertedData)
                 .then(

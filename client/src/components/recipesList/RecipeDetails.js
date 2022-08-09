@@ -20,7 +20,6 @@ export const RecipeDetails = () => {
     }, [recipeId])
 
     const isOwner = user._id === recipe[0].recipeAuthor;
-    console.log(isOwner);
 
     return (
         <main className="create-recipe-page">

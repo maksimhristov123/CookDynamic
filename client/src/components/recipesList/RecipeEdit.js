@@ -1,33 +1,35 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, Navigate  } from "react-router-dom";
 
 import { Intro } from "../base/Intro";
 import { RecipeItem } from "./RecipeItem";
 import { SectionHeading } from "../base/SectionHeading";
 
 import * as recipeServices from '../../services/recipeServices';
-import { useParams } from "react-router-dom";
+import { useUserContext } from "../../contexts/userContext";
 
 export const RecipeEdit = () => {
-
+    
+    const {user} = useUserContext();
     const { recipeId } = useParams();
     const navigateTo = useNavigate();
-
+    
     const [recipe, setRecipe] = useState([{}]);
-
+    
     useEffect(() => {
         recipeServices.getOne(recipeId)
-            .then(recipe => setRecipe(recipe));
+        .then(recipe => setRecipe(recipe));
     }, [recipeId])
-
+    
+    if(!user || user._id !== recipe.recipeAuthor){
+        return <Navigate to="/" />
+    }
     
     function submitHendler(e) {
         e.preventDefault();
 
          const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage } = Object.fromEntries(new FormData(e.target));
          const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage };
-
-         console.log({...insertedData});
         
         return recipeServices.edit(recipeId,insertedData)
                 .then(
