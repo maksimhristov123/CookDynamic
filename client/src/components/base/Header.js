@@ -63,7 +63,7 @@ export const Header = () => {
 
                 {user.email
                     ? <div className="header_btn_container">
-                        <Link to="/" className="btn btn_login">
+                        <Link to="/profile" className="btn btn_login">
                             <p>Profile</p>
                             <FontAwesomeIcon icon={faUser} />
                         </Link>

@@ -9,6 +9,7 @@ import { RecipeList } from './components/recipesList/RecipeList';
 import { Register } from './components/userSpace/Register';
 import { Login } from './components/userSpace/Login';
 import { Logout } from './components/userSpace/Logout';
+import { Profile } from './components/userSpace/Profile';
 import { RecipeCreate } from './components/recipesList/RecipeCreate';
 import { RecipeEdit } from './components/recipesList/RecipeEdit';
 import { RecipeDelete } from './components/recipesList/RecipeDelete';
@@ -45,6 +46,7 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/logout" element={<Logout />} />
+                    <Route path="/profile" element={<Profile />} />
     
                 </Routes>
 

@@ -1,22 +1,12 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLongArrowLeft, faLongArrowRight, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
-import { RecipeItem } from "./RecipeItem";
+
 import { Intro } from '../base/Intro';
 import { SectionHeading } from '../base/SectionHeading';
 
-import * as recipeServices from '../../services/recipeServices';
-import { useEffect, useState } from 'react';
+import { RecipeCatalog } from "./RecipeCatalog";
 
 
 export const RecipeList = () => {
-
-    const [recipes, setRecipes] = useState([]);
-
-    useEffect(() => {
-        recipeServices.getAll()
-            .then(recipes => setRecipes(recipes));
-    }, [])
 
     return (
         <main className="choose_recipes_page">
@@ -35,11 +25,7 @@ export const RecipeList = () => {
                 />
 
                 <div className="inner_section">
-                    <div className="recipes_menu_container">
-
-                        {recipes.map((recipe) => <RecipeItem key={recipe._id} recipeId={recipe._id} recipeImage={recipe.recipeImage} cookTime={recipe.recipeTime} category={recipe.recipeCategories} recipeTitle={recipe.recipeTitle} resipeDescription={recipe.recipeDescription} /> )}
-
-                    </div>
+                    <RecipeCatalog />
                 </div>
 
             </section>
