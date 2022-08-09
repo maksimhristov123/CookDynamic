@@ -43,8 +43,5 @@ export const login = async (email, password) => {
 }
 
 export const logout = async () => {
-    const response = await fetch(`${baseUrl}/logout`)
     localStorage.clear()
-
-    return response;
 }

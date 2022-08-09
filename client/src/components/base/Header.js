@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -49,10 +48,14 @@ export const Header = () => {
                                     <Link className="dropdown-item" to="/">Our meal kits</Link>
                                 </li>
 
-                                <li>
-                                    <FontAwesomeIcon icon={faBowlFood} />
-                                    <Link className="dropdown-item" to="/create">Create Recipe</Link>
-                                </li>
+                                {user.email
+                                    ? <li>
+                                        <FontAwesomeIcon icon={faBowlFood} />
+                                        <Link className="dropdown-item" to="/create">Create Recipe</Link>
+                                      </li>
+                                    : ""
+                                }
+
                             </ul>
                         </div>
                     </div>

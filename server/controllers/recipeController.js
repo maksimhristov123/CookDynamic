@@ -18,8 +18,8 @@ const recipesGetOne =  async (req, res) => {
 // Create Recipes
 const recipeCreate = async (req, res) => {
 
-    const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage } = req.body;
-    const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage };
+    const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage, recipeAuthor } = req.body;
+    const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage, recipeAuthor };
 
     const insertedRecipe = await Recipe.create({...insertedData});
     return res.status(201).json(insertedRecipe);

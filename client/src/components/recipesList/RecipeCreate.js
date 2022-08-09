@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Intro } from "../base/Intro";
@@ -6,8 +6,11 @@ import { RecipeItem } from "./RecipeItem";
 import { SectionHeading } from "../base/SectionHeading";
 
 import * as recipeServices from '../../services/recipeServices';
+import {useUserContext} from '../../contexts/userContext'
 
 export const RecipeCreate = () => {
+
+    const {user} = useUserContext()
 
     const navigateTo = useNavigate();
 
@@ -16,13 +19,15 @@ export const RecipeCreate = () => {
         recipeDescription: '',
         recipeCategories: '',
         recipeTime: '',
-        recipeImage: ''
+        recipeImage: '',
+        recipeAuthor: '',
     })
 
     const chageHendler = (e) => {
 
         setValues(s => ({
             ...s,
+            recipeAuthor: user._id,
             [e.target.name]: e.target.value
         }))
 
@@ -31,8 +36,8 @@ export const RecipeCreate = () => {
     function submitHendler(e) {
         e.preventDefault();
 
-        const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage } = values;
-        const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage };
+        const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage, recipeAuthor } = values;
+        const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage, recipeAuthor };
 
         // console.log({...insertedData});
         

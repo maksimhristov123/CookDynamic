@@ -5,17 +5,22 @@ import { Intro } from "../base/Intro";
 import { SectionHeading } from "../base/SectionHeading";
 import * as recipeServices from '../../services/recipeServices';
 import { useParams } from "react-router-dom";
+import { useUserContext } from "../../contexts/userContext";
 
 export const RecipeDetails = () => {
+
+    const {user} = useUserContext();
 
     const [recipe, setRecipe] = useState([{}]);
     const { recipeId } = useParams();
 
     useEffect(() => {
         recipeServices.getOne(recipeId)
-            .then(recipe => setRecipe(recipe));
+        .then(recipe => setRecipe(recipe));
     }, [recipeId])
 
+    const isOwner = user._id === recipe[0].recipeAuthor;
+    console.log(isOwner);
 
     return (
         <main className="create-recipe-page">
@@ -54,17 +59,19 @@ export const RecipeDetails = () => {
                                 {recipe[0].recipeDescription}
                             </p>
 
-                            <div className='btn_container'>
+                            {isOwner?  
+                                <div className='btn_container'>
+                                    <Link to={`/recipes/${recipeId}/edit`} className="btn add_to_card">
+                                        Edit
+                                    </Link>
 
-                                <Link to={`/recipes/${recipeId}/edit`} className="btn add_to_card">
-                                    Edit
-                                </Link>
+                                    <Link to={`/recipes/${recipeId}/delete`} className="btn add_to_card">
+                                        Delete
+                                    </Link>
+                                </div>
+                                : ""
 
-                                <Link to={`/recipes/${recipeId}/delete`} className="btn add_to_card">
-                                    Delete
-                                </Link>
-
-                            </div>
+                            } 
                         </div>
                     </div>
 

@@ -18,13 +18,9 @@ const login = async (req, res) => {
     return res.status(201).json(user);
 }
 
-//Logout
-const logout = (req, res) => {
-    return res;
-}
+
 
 module.exports = {
     register,
-    login,
-    logout
+    login
 }
