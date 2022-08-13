@@ -6,11 +6,9 @@ import { RecipeItem } from "./RecipeItem";
 import { SectionHeading } from "../base/SectionHeading";
 
 import * as recipeServices from '../../services/recipeServices';
-import { useUserContext } from "../../contexts/userContext";
 
 export const RecipeEdit = () => {
     
-    const {user} = useUserContext();
     const { recipeId } = useParams();
     const navigateTo = useNavigate();
     
@@ -21,9 +19,6 @@ export const RecipeEdit = () => {
         .then(recipe => setRecipe(recipe));
     }, [recipeId])
     
-    if(!user || user._id !== recipe.recipeAuthor){
-        return <Navigate to="/" />
-    }
     
     function submitHendler(e) {
         e.preventDefault();
@@ -138,7 +133,7 @@ export const RecipeEdit = () => {
                     <RecipeItem
                             author={'Dragan'}
                             recipeImage={recipe[0].recipeImage}
-                            cookTime={recipe[0].cookTime}
+                            cookTime={recipe[0].recipeTime}
                             category={recipe[0].recipeCategories}
                             recipeTitle={recipe[0].recipeTitle}
                             resipeDescription={recipe[0].recipeDescription}

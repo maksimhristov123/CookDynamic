@@ -4,7 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { Intro } from "../base/Intro";
 import { SectionHeading } from "../base/SectionHeading";
 
-import {UserContext} from '../../contexts/userContext'
+import { UserContext } from '../../contexts/userContext';
+import { ErrorHendler } from "../errors/ErrorHendler";
 import * as userServices from '../../services/userServices';
 
 export const Register = () => {
@@ -18,7 +19,11 @@ export const Register = () => {
         password: "",
         repeatPassword: "",
         profileImageUrl: ""
-    })
+    });
+
+    const [err, setErr] = useState({
+        message: ''
+    });
 
     const chageHendler = (e) => {
         setValues(s => ({
@@ -27,22 +32,42 @@ export const Register = () => {
         }))
     }
 
+
     function submitHendler(e) {
         e.preventDefault();
 
         const { username, email, password, repeatPassword, profileImageUrl } = values;
 
         if (password !== repeatPassword) {
-            console.log('Password not match!');
+            setErr({
+                message: 'Password not match!'
+            });
+            return;
         }
 
-        const insertedData = { username, email, password, profileImageUrl }
-
-        return userServices.register(insertedData)
-            .then(data => {
-                userLogin(data)
-                navigateTo('/')
+        if (username === '' || email === '' || password === '' || repeatPassword === '' || profileImageUrl === '') {
+            setErr({
+                message: 'All fields are required!'
             });
+            return;
+        }
+
+        try {
+            const insertedData = { username, email, password, profileImageUrl }
+
+            return userServices.register(insertedData)
+                .then(data => {
+                    userLogin(data)
+                    navigateTo('/')
+                });
+
+
+        } catch (error) {
+            setErr({
+                message: error.message
+            });
+        }
+
     }
 
     return (
@@ -135,6 +160,9 @@ export const Register = () => {
                             <input className="btn btn_blue btn_submit_register" type="submit" value="Submit" />
 
                         </div>
+
+                        {err.message && <ErrorHendler error={err.message} />}
+
 
                         <p>
                             You already have an account?

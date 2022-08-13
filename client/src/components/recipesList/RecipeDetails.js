@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 import { Intro } from "../base/Intro";
 import { SectionHeading } from "../base/SectionHeading";
@@ -17,7 +17,7 @@ export const RecipeDetails = () => {
     useEffect(() => {
         recipeServices.getOne(recipeId)
         .then(recipe => setRecipe(recipe));
-    }, [recipeId])
+    }, [recipeId]);
 
     const isOwner = user._id === recipe[0].recipeAuthor;
 
@@ -58,7 +58,7 @@ export const RecipeDetails = () => {
                                 {recipe[0].recipeDescription}
                             </p>
 
-                            {isOwner?  
+                            {user && isOwner?  
                                 <div className='btn_container'>
                                     <Link to={`/recipes/${recipeId}/edit`} className="btn add_to_card">
                                         Edit

@@ -1,21 +1,22 @@
-import { useContext } from "react";
-import { useNavigate, Link, Navigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useNavigate, Link} from "react-router-dom";
 
 import { Intro } from "../base/Intro";
 import { SectionHeading } from "../base/SectionHeading";
 
 import * as userServices from "../../services/userServices";
-import {  UserContext, useUserContext } from "../../contexts/userContext";
+import {  UserContext} from "../../contexts/userContext";
+import { ErrorHendler } from "../errors/ErrorHendler";
+
 
 export const Login = () => {
 
     const { userLogin } = useContext(UserContext);
-    const {user} = useUserContext();
     const navigateTo = useNavigate();
 
-    if(user.email){
-        return <Navigate to="/" />
-    }
+    const [err, setErr] = useState({
+        message: ''
+    });
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -76,6 +77,8 @@ export const Login = () => {
                             />
 
                         </div>
+
+                        {err.message && <ErrorHendler error={err.message} />}
 
                         <div className="form_item">
 

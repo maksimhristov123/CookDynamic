@@ -1,19 +1,17 @@
 import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 
 import { Intro } from "../base/Intro";
 import { RecipeItem } from "./RecipeItem";
 import { SectionHeading } from "../base/SectionHeading";
 
 import * as recipeServices from '../../services/recipeServices';
-import {useUserContext} from '../../contexts/userContext'
+import { useUserContext } from '../../contexts/userContext'
 
 export const RecipeCreate = () => {
 
-    const {user} = useUserContext()
-
+    const { user } = useUserContext()
     const navigateTo = useNavigate();
-
     const [values, setValues] = useState({
         recipeTitle: '',
         recipeDescription: '',
@@ -22,6 +20,10 @@ export const RecipeCreate = () => {
         recipeImage: '',
         recipeAuthor: '',
     })
+
+    if (!user) {
+        return <Navigate to="/" />
+    }
 
     const chageHendler = (e) => {
 
@@ -38,13 +40,14 @@ export const RecipeCreate = () => {
 
         const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage, recipeAuthor } = values;
         const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage, recipeAuthor };
-        
+
         return recipeServices.create(insertedData)
-                .then(
-                    navigateTo('/')
-                );
+            .then(
+                navigateTo('/')
+            );
 
     }
+
 
 
     return (
@@ -151,8 +154,8 @@ export const RecipeCreate = () => {
                         <RecipeItem
                             author={'Dragan'}
                             recipeImage={values.recipeImage || './uploads/meal2.png'}
-                            cookTime={Number(values.cookTime) || 20}
-                            category={values.category || ['best-seller']}
+                            cookTime={Number(values.recipeTime) || 20}
+                            category={values.recipeCategories || ['best-seller']}
                             recipeTitle={values.recipeTitle || 'Lorem ipsum'}
                             resipeDescription={values.recipeDescription.substring(0, 100) || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
 

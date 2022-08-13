@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
 
-import {UserContext} from './contexts/userContext'
+import { UserContext } from './contexts/userContext'
 
 import { Header } from './components/base/Header';
 import { RecipeList } from './components/recipesList/RecipeList';
@@ -18,9 +18,9 @@ import { RecipeDetails } from './components/recipesList/RecipeDetails';
 import { useLocalStorage } from "./hooks/useLocaleStorage";
 
 function App() {
-    const [auth, setAuth] = useLocalStorage('auth',{});
+    const [auth, setAuth] = useLocalStorage('auth', {});
 
-    const userLogin= (authData) => {
+    const userLogin = (authData) => {
         setAuth(authData)
     }
 
@@ -29,7 +29,8 @@ function App() {
     }
 
     return (
-        <UserContext.Provider value={{user:auth, userLogin, userLogout}}>
+        <UserContext.Provider value={{ user: auth, userLogin, userLogout }}>
+
             <div className="App">
                 <Header />
 
@@ -43,11 +44,14 @@ function App() {
                     <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
 
                     {/* Users */}
+
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/logout" element={<Logout />} />
                     <Route path="/profile" element={<Profile />} />
-    
+
+
+
                 </Routes>
 
             </div>
