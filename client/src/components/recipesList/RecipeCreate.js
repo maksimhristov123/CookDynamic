@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 
 import { Intro } from "../base/Intro";
@@ -47,8 +47,6 @@ export const RecipeCreate = () => {
             );
 
     }
-
-
 
     return (
         <main className="create-recipe-page">

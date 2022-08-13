@@ -1,35 +1,46 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams, Navigate  } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { Intro } from "../base/Intro";
 import { RecipeItem } from "./RecipeItem";
 import { SectionHeading } from "../base/SectionHeading";
 
+import { ErrorHendler } from "../errors/ErrorHendler";
 import * as recipeServices from '../../services/recipeServices';
 
 export const RecipeEdit = () => {
-    
+
     const { recipeId } = useParams();
     const navigateTo = useNavigate();
-    
+
     const [recipe, setRecipe] = useState([{}]);
-    
+    const [err, setErr] = useState({
+        message: ''
+    });
+
     useEffect(() => {
         recipeServices.getOne(recipeId)
-        .then(recipe => setRecipe(recipe));
+            .then(recipe => setRecipe(recipe));
     }, [recipeId])
-    
-    
+
+
     function submitHendler(e) {
         e.preventDefault();
 
-         const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage } = Object.fromEntries(new FormData(e.target));
-         const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage };
-        
-        return recipeServices.edit(recipeId,insertedData)
-                .then(
-                    navigateTo('/')
-                );
+        const { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage } = Object.fromEntries(new FormData(e.target));
+        const insertedData = { recipeTitle, recipeDescription, recipeCategories, recipeTime, recipeImage };
+
+        if (recipeTitle === '' || recipeDescription === '' || recipeCategories === '' || recipeTime === '' || recipeImage === '') {
+            setErr({
+                message: 'All fields are required!'
+            });
+            return;
+        }
+
+        return recipeServices.edit(recipeId, insertedData)
+            .then(
+                navigateTo('/')
+            );
 
     }
 
@@ -52,7 +63,7 @@ export const RecipeEdit = () => {
                 </div>
                 <div className="inner_section">
 
-                <div className="col-half">
+                    <div className="col-half">
                         <form id="recipe_create_form" onSubmit={submitHendler}>
                             <div className="form_item">
 
@@ -124,13 +135,15 @@ export const RecipeEdit = () => {
 
                             </div>
 
+                            {err.message && <ErrorHendler error={err.message} />}
+
                         </form>
 
                     </div>
 
 
                     <div className="col-half">
-                    <RecipeItem
+                        <RecipeItem
                             author={'Dragan'}
                             recipeImage={recipe[0].recipeImage}
                             cookTime={recipe[0].recipeTime}
@@ -139,8 +152,6 @@ export const RecipeEdit = () => {
                             resipeDescription={recipe[0].recipeDescription}
 
                         />
-
-
                     </div>
                 </div>
             </section>
